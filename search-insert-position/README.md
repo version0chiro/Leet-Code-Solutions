@@ -1,3 +1,4 @@
+[Discussion Post (created on 26/2/2021 at 18:1)](https://leetcode.com/problems/search-insert-position/discuss/1128328/Simple-CPP-triple-loop-O(n)-solution)  
 <h2>35. Search Insert Position</h2><h3>Easy</h3><hr><div><p>Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
 
 <p>&nbsp;</p>
