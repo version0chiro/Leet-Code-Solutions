@@ -11,10 +11,12 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        ListNode* l3=new ListNode (); //making a new list node for answer
-        ListNode* cur3=l3;  // reference to the head to return from the function
+        ListNode* l3=new ListNode ();
+        ListNode* cur3=l3;
         while(l1 && l2){
-            if(l1->val>l2->val){ //just join the smaller nodes to the head node one by one 
+            // cout<<" values = "<<l1->val << "  " <<l2->val << "\n";
+            if(l1->val>l2->val){
+                // cout<<"going here";
                 l3->next=l2;
                 l2=l2->next;
                 l3=l3->next;
@@ -22,23 +24,28 @@ public:
             }
             else{
                 l3->next=l1;
+                // cout<<"going here 2";
                 l1=l1->next;
                 l3=l3->next;
             }
             
         }
         
-        // connect the remaining list to the end of answer head 
-        
-        if(l1){
-            l3->next=l1;            
+        while(l1){
+            l3->next=l1;
+            l1=l1->next;
+            l3=l3->next;
         }
-        else if(l2){
-            l3->next=l2;            
+        while(l2){
+            l3->next=l2;
+            l2=l2->next;
+            l3=l3->next;
+            
         }
         
         
         
-        return cur3->next; //return the head reference->next
+        
+        return cur3->next;
     }
 };
