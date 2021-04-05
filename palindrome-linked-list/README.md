@@ -1,3 +1,4 @@
+[Discussion Post (created on 5/3/2021 at 14:1)](https://leetcode.com/problems/palindrome-linked-list/submissions/)  
 <h2>234. Palindrome Linked List</h2><h3>Easy</h3><hr><div><p>Given the <code>head</code> of a singly linked list, return <code>true</code> if it is a palindrome.</p>
 
 <p>&nbsp;</p>
