@@ -10,59 +10,38 @@
  */
 class Solution {
 public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* curr = head;
+        ListNode* temp = NULL;
+        ListNode* prev = NULL;
+        while(curr){
+            temp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        
+        return prev;
+    }
     bool isPalindrome(ListNode* head) {
-        string s="";
-        
-        while(head){
-            s+=to_string(head->val);
-            head=head->next;
+        ListNode* slow = head;
+        ListNode* fast  = head;
+        while(fast && fast->next){
+            fast = fast->next->next;
+            slow = slow->next;
         }
+        slow = reverseList(slow);
+        fast = head;
         
-        int n = s.length();
-        if(n%2==0){
-            int mid2=n/2;
-            // cout<<s[mid2]<<" "<<mid2<<endl;
-            int mid1=n/2 -1;
-            // cout<<s[mid1]<<" "<<mid1<<endl;
-            while(mid1>=0 && mid2<n && s[mid1]==s[mid2]){
-                // cout<<s[mid1]<<" "<<s[mid2]<<endl;
-                mid1--;
-                mid2++;
-            }
-            if(mid1==-1 && mid2==n){
-                return true;
-            }
-            else{
+        while(slow){
+            if(fast->val != slow->val){
                 return false;
             }
-            
-            
-        }else{
-            int mid2=n/2;
-            // cout<<s[mid2]<<" "<<mid2<<endl;
-            int mid1=n/2;
-            // cout<<s[mid1]<<" "<<mid1<<endl;
-            while(mid1>=0 && mid2<n && s[mid1]==s[mid2]){
-                // cout<<s[mid1]<<" "<<s[mid2]<<endl;
-                mid1--;
-                mid2++;
-            }
-            if(mid1==-1 && mid2==n){
-                return true;
-            }
-            else{
-                return false;
-            }
-            
-            
-
-            
+            slow=slow->next;
+            fast = fast->next;
         }
         
+        return true;
         
-        // cout<<s<<"==="<<n;
-        
-        
-        return false;
     }
 };
