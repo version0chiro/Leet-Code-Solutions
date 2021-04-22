@@ -14,11 +14,22 @@ public:
     int maxDepth(TreeNode* root) {
         if(root==NULL){
             return 0;
-        }else{
-            int lDepth = maxDepth(root->left);
-            int rDepth = maxDepth(root->right);
-            
-            return max(lDepth+1,rDepth+1);
         }
+        queue<TreeNode*> q;
+        q.push(root);
+        int depth=0;
+        while(!q.empty()){
+            depth++;
+            int s = q.size();
+            for(int i=0;i<s;i++){
+                auto temp = q.front();
+                q.pop();
+                
+                if(temp->left) q.push(temp->left);
+                if(temp->right)q.push(temp->right);
+            }
+        }
+        
+        return depth;
     }
 };
