@@ -11,20 +11,20 @@
  */
 class Solution {
 public:
-    bool isSym(TreeNode* left,TreeNode* right){
-        if(left == NULL || right == NULL)
-            return (right == left);
-        if(left->val != right->val){
+    bool solve(TreeNode* left,TreeNode* right){
+        // if(!left || )
+        if(!left && !right) return true;
+        if(!left || !right) return false;
+        
+        if(left->val!=right->val){
             return false;
         }
         
-        return isSym(left->left,right->right) && isSym(right->left,left->right);
+        return solve(left->left,right->right) && solve(left->right,right->left) && true;
     }
-    
     bool isSymmetric(TreeNode* root) {
-        if(root==NULL){
-            return true;
-        }
-        return isSym(root->left,root->right);
+        if(!root) return true;
+        
+        return solve(root->left,root->right);
     }
 };
