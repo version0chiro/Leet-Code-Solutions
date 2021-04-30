@@ -1,3 +1,4 @@
+[Discussion Post (created on 30/3/2021 at 19:40)](https://leetcode.com/problems/number-of-good-pairs/discuss/1184071/C%2B%2B-100-faster-solution-using-map)  
 <h2>1512. Number of Good Pairs</h2><h3>Easy</h3><hr><div><p>Given an array of integers&nbsp;<code>nums</code>.</p>
 
 <p>A pair&nbsp;<code>(i,j)</code>&nbsp;is called <em>good</em> if&nbsp;<code>nums[i]</code> == <code>nums[j]</code> and <code>i</code> &lt; <code>j</code>.</p>
