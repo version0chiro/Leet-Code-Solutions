@@ -13,16 +13,28 @@ class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val) {
         if(!root){
-            return NULL;
-        }
-        if(root->val==val){
             return root;
         }
-        if(root->val>val){
-            return searchBST(root->left,val);
-        }else{
-            return searchBST(root->right,val);
+        
+        queue<TreeNode*> q;
+        q.push(root);
+        while(!q.empty()){
+            int s = q.size();
+            
+            for(int i=0;i<s;i++){
+                auto temp = q.front();
+                q.pop();
+                if(temp->val==val){
+                    return temp;
+                }
+                if(temp->left && val<temp->val){
+                    q.push(temp->left);
+                } else if(temp->right && val>temp->val){
+                    q.push(temp->right);
+                }
+                
+            }
         }
-        // return NULL;
+        return NULL;
     }
 };
