@@ -1,3 +1,4 @@
+[Discussion Post (created on 10/4/2021 at 3:35)](https://leetcode.com/problems/lemonade-change/discuss/1200173/80-faster-easy-to-understand-CPP-solution)  
 <h2>860. Lemonade Change</h2><h3>Easy</h3><hr><div><p>At a lemonade stand, each lemonade costs <code>$5</code>.&nbsp;</p>
 
 <p>Customers are standing in a queue to buy from you, and order one at a time (in the order specified by <code>bills</code>).</p>
