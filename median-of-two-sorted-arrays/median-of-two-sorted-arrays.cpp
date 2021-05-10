@@ -1,43 +1,41 @@
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        int pointer1=0;
-        int pointer2=0;
-        double ans=0;
-        vector<int> finalVector;
-        while(pointer1<nums1.size() || pointer2<nums2.size()){
-            if(pointer1>=nums1.size()){
-                finalVector.push_back(nums2[pointer2]);
-                pointer2++;
-            }
-            else if(pointer2>=nums2.size()) {
-                finalVector.push_back(nums1[pointer1]);
-                pointer1++;
-            }
+        vector<int>merged;  
+        
+        int i=0,j=0;  
+        
+        while(i<nums1.size() && j<nums2.size()){
             
-            else{
-                            if(nums1[pointer1]>nums2[pointer2]){
-                finalVector.push_back(nums2[pointer2]);
-                pointer2++;
+        
+            if(nums1[i]<nums2[j])
+            {
+                merged.push_back(nums1[i]);
+                i++;
             }
-            else{
-                finalVector.push_back(nums1[pointer1]);
-                pointer1++;
-            }                
+            else
+            {
+                merged.push_back(nums2[j]);
+                j++;
             }
-            
-
+        }
+        while(i<nums1.size()) 
+        {
+            merged.push_back(nums1[i]);
+            i++;
+        }
+        while(j<nums2.size()) 
+        {
+            merged.push_back(nums2[j]);
+            j++;
         }
         
-        int length=finalVector.size()-1;
         
-        if(finalVector.size()%2==0){
-            ans = finalVector[length/2]+finalVector[(length+1)/2];
-            ans = ans/2.0;
-        }else{
-            ans= finalVector[finalVector.size()/2];
-        }
-        return ans;
+        
+        if(merged.size()%2==0) //for even size
+            return (merged[merged.size()/2] + merged[(merged.size()-1)/2])/2.0;
+        else 
+            return merged[merged.size()/2];
+        
     }
-    
 };
