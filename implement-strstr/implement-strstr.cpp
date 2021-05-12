@@ -4,6 +4,8 @@ public:
         if(needle.size()<1){
             return 0;
         }
+        
+        cout<<haystack[5];
         int needleLength=needle.length();
         cout<<needleLength;
         int countLength=0;
