@@ -33,6 +33,8 @@ public:
                     checkMap[curr]=true;
             }else if(isalpha(s[i])){
                 solve(ans,s,count,curr+s[i],i+1,n,open,closing);
+                checkMap[curr+s[i]]=true;
+
             }
         }
         return;
