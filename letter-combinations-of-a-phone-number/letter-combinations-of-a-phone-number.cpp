@@ -7,16 +7,12 @@ public:
     void solve(vector<string> &ans,string digits,int i,int k,string curr,int len){
         
         if(i>=len) return;
+                
+
         
-        cout<<i<<" "<<len<<" "<<" "<<k<<" "<<digits[i]<<" ";
-        
-        int j =letters[((int)digits[i] - 48)].size();
-        
-        cout<<j<<"\n";
-        if(k>=j) return;
-        auto temp=curr;
+        if(k>=letters[((int)digits[i] - 48)].size()) return;
+        string temp=curr;
         curr=curr+letters[((int)digits[i] - 48)][k];
-        cout<<" "<<curr<<" \n";
         if(i==len-1){
             ans.push_back(curr);
         }
@@ -32,8 +28,8 @@ public:
             return {};
         }
         vector<string> ans;
-        int i=0;
-        solve(ans,digits,i,0,"",digits.size());
+
+        solve(ans,digits,0,0,"",digits.size());
         return ans;
     }
 };
