@@ -1,34 +1,36 @@
 class Solution {
 public:
-    
-    int dfs(vector<vector<int>> & grid , int i, int j){
-        if(i<0 || i>=grid.size() || j<0 | j>=grid[0].size() || grid[i][j]==0)
-            return 0;
-        
-        int curr=grid[i][j];
-        grid[i][j]=0;
-        int ans=0;
-        
-		//Checking all the four directions
-        ans=max(ans,dfs(grid,i+1,j));
-        ans=max(ans,dfs(grid,i-1,j));
-        ans=max(ans,dfs(grid,i,j-1));
-        ans=max(ans,dfs(grid,i,j+1));
-        
-        grid[i][j]=curr;   // Backtrack
-        
-        return ans+curr;
+
+    int solve(vector<vector<int>>& arr, int i, int j)
+    {
+    if (i >= arr.size() || j >= arr[0].size() || i < 0 || j < 0 || arr[i][j]==0)
+    {
+        return 0;
     }
+
+    int org = arr[i][j];
+    arr[i][j]=0;
+    int ans=0;
+    ans= max(ans, solve(arr,  i + 1, j));
+    ans = max(ans,solve(arr,  i -1 , j));
+    ans =max(ans,solve(arr,  i , j-1));
+    ans = max(ans,solve(arr, i , j+1));
     
+    arr[i][j]=org;
+        
+    return ans+org;
+    }
     int getMaximumGold(vector<vector<int>>& grid) {
-        int ans=0;
+        
+        int maxVal = 0;
+        
         for(int i=0;i<grid.size();i++){
             for(int j=0;j<grid[0].size();j++){
-                if(grid[i][j]>0){
-                    ans=max(ans,dfs(grid,i,j));
-                }
+                if(grid[i][j]>0)
+                maxVal=max(maxVal,solve(grid,i,j));
+                
             }
         }
-        return ans;
+        return maxVal;
     }
 };
