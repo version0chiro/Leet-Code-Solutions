@@ -1,3 +1,4 @@
+[Discussion Post (created on 5/5/2021 at 11:31)](https://leetcode.com/problems/merge-k-sorted-lists/discuss/1252112/C%2B%2B-priority-Queue-97-fast-solution)  
 <h2>23. Merge k Sorted Lists</h2><h3>Hard</h3><hr><div><p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>
 
 <p><em>Merge all the linked-lists into one sorted linked-list and return it.</em></p>
