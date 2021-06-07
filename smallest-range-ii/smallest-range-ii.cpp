@@ -1,19 +1,20 @@
 class Solution {
 public:
-    int smallestRangeII(vector<int>& arr, int k) {
-        int n = arr.size();
-        sort(arr.begin(), arr.end());
+    int smallestRangeII(vector<int>& nums, int k) {
+        sort(nums.begin(),nums.end());
         
-        int left=arr[0]+k,right=arr[n-1]-k;
+        int height = nums.back()-nums.front();
         
-        int ans = arr[n-1] - arr[0];
+        int left=nums[0]+k,right=nums.back()-k;
         
-        for(int i=0;i<arr.size()-1;i++){
-            int maxi=max(right,arr[i]+k),mini=min(left,arr[i+1]-k);
+        for(int i=0;i<nums.size()-1;i++){
             
-            ans=min(ans,maxi-mini);
+            int minE = min(left,nums[i+1]-k);
+            int maxE=max(right,nums[i]+k);
+            cout<<minE<<" "<<maxE<<" ";
+            height=min(height,maxE-minE);
         }
         
-        return ans;
+        return height;
     }
 };
