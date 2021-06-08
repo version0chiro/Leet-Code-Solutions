@@ -1,3 +1,4 @@
+[Discussion Post (created on 8/5/2021 at 23:18)](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/discuss/1259614/C%2B%2B-no-stack-easy-solution)  
 <h2>1249. Minimum Remove to Make Valid Parentheses</h2><h3>Medium</h3><hr><div><p>Given a string <font face="monospace">s</font>&nbsp;of&nbsp;<code>'('</code>&nbsp;,&nbsp;<code>')'</code>&nbsp;and lowercase English characters.&nbsp;</p>
 
 <p>Your task is to remove the minimum number of parentheses (&nbsp;<code>'('</code>&nbsp;or&nbsp;<code>')'</code>,&nbsp;in any positions ) so that the resulting <em>parentheses string</em> is valid and return <strong>any</strong> valid string.</p>
