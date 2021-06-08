@@ -1,3 +1,4 @@
+[Discussion Post (created on 8/5/2021 at 11:46)](https://leetcode.com/problems/fair-candy-swap/discuss/1258455/C%2B%2B-Easy-to-understand-map-solution)  
 <h2>888. Fair Candy Swap</h2><h3>Easy</h3><hr><div><p>Alice and Bob have candy bars of different sizes: <code>aliceSizes[i]</code> is the size of the <code>i</code>-th bar of candy that Alice has, and <code>bobSizes[j]</code> is the size of the <code>j</code>-th bar of candy that Bob has.</p>
 
 <p>Since they are friends, they would like to exchange one candy bar each so that after the exchange, they both have the same total&nbsp;amount of candy.&nbsp; (<em>The total amount of candy&nbsp;a person has is the sum of the sizes of candy&nbsp;bars they have.</em>)</p>
