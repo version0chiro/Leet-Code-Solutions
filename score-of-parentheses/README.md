@@ -1,3 +1,4 @@
+[Discussion Post (created on 10/5/2021 at 15:46)](https://leetcode.com/problems/score-of-parentheses/discuss/1262804/C%2B%2B-O(1)-no-stack-simple-loop-and-counter-solution-100-faster)  
 <h2>856. Score of Parentheses</h2><h3>Medium</h3><hr><div><p>Given a balanced parentheses string <code>s</code>, compute the score of the string based on the following rule:</p>
 
 <ul>
