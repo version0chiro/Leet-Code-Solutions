@@ -4,7 +4,6 @@ public:
         
         int sum=0;
         int openCount=0;
-        int finalSum=0;
         
         for(int i=0;i<s.size();i++){
             if(s[i]=='('){
@@ -18,8 +17,6 @@ public:
                     openCount--;
                     powerRaise++;
                 }
-                cout<<openCount<<" ";
-                cout<<pow(2,openCount)*pow(2,powerRaise)<<"\n";
                 sum+=pow(2,openCount)*pow(2,powerRaise);
             }
         }
