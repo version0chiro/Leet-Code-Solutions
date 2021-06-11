@@ -10,6 +10,6 @@ public:
 //         t[2]=true;
 //         t[3]=false;
         
-        return !(n & 1);
+        return (n & 1)==0;
     }
 };
