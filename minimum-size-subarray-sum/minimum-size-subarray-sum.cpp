@@ -9,12 +9,12 @@ public:
         int minCount = INT_MAX;
         
         while(end<nums.size()){
-            cout<<"adding =>"<<nums[end]<<" "<<sum<<endl;
+            // cout<<"adding =>"<<nums[end]<<" "<<sum<<endl;
             sum+=nums[end];
             count++;
             
             while(sum>=target){
-                cout<<"subtract =>"<<nums[start]<<" "<<sum<<endl;
+                // cout<<"subtract =>"<<nums[start]<<" "<<sum<<endl;
                 if(sum>=target){
                     minCount = min(minCount,count);
                 }
@@ -27,7 +27,7 @@ public:
             end++;
             
         }
-        cout<<minCount;
+        // cout<<minCount;
         if(minCount==INT_MAX){
             return 0;
         }
