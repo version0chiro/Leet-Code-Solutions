@@ -1,3 +1,4 @@
+[Discussion Post (created on 17/5/2021 at 15:21)](https://leetcode.com/problems/rearrange-words-in-a-sentence/discuss/1278589/90-faster-solution-in-cpp-using-ordered-map-and-96%2B-storage)  
 <h2>1451. Rearrange Words in a Sentence</h2><h3>Medium</h3><hr><div><p>Given a sentence&nbsp;<code>text</code> (A&nbsp;<em>sentence</em>&nbsp;is a string of space-separated words) in the following format:</p>
 
 <ul>
