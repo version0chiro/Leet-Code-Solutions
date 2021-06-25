@@ -32,9 +32,7 @@ public:
                 if(m.find({j,i})!=m.end()){
                     if(m[{j,i}].size()>1)
                         sort(m[{j,i}].begin(),m[{j,i}].end());
-        
-                    // ans.push_back(m[{j,i}]);
-                    // cout<<" "<<j<<" , "<<i<<" :";
+
                     for(auto a:m[{j,i}]){
                         temp.push_back(a);
                     }
@@ -42,18 +40,7 @@ public:
             }
             ans.push_back(temp);
             temp.clear();
-            // cout<<endl;
         }
-        // for(auto a:m){
-        //     // if(a.second.size()>1)
-        //     //     sort(a.second.begin(),a.second.end());
-        //     // ans.push_back(a.second);
-        //     cout<<a.first.first<<","<<a.first.second<<"::";
-        //     for(auto p:a.second){
-        //         cout<<p<<" ";
-        //     }
-        //     cout<<endl;
-        // }
         return ans;
     }
 };
