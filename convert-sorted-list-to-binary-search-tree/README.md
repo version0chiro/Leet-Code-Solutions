@@ -5,28 +5,28 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2020/08/17/linked.jpg" style="width: 600px; height: 466px;">
-<pre style="position: relative;"><strong>Input:</strong> head = [-10,-3,0,5,9]
+<pre><strong>Input:</strong> head = [-10,-3,0,5,9]
 <strong>Output:</strong> [0,-3,9,-10,null,5]
 <strong>Explanation:</strong> One possible answer is [0,-3,9,-10,null,5], which represents the shown height balanced BST.
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> head = []
+<pre><strong>Input:</strong> head = []
 <strong>Output:</strong> []
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong>Example 3:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> head = [0]
+<pre><strong>Input:</strong> head = [0]
 <strong>Output:</strong> [0]
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong>Example 4:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> head = [1,3]
+<pre><strong>Input:</strong> head = [1,3]
 <strong>Output:</strong> [3,1]
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
