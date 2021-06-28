@@ -1,3 +1,4 @@
+[Discussion Post (created on 28/5/2021 at 12:26)](https://leetcode.com/problems/delete-leaves-with-a-given-value/discuss/1302133/C%2B%2B-recursive-solution)  
 <h2>1325. Delete Leaves With a Given Value</h2><h3>Medium</h3><hr><div><p>Given a binary tree&nbsp;<code>root</code>&nbsp;and an integer&nbsp;<code>target</code>, delete all the&nbsp;<strong>leaf nodes</strong>&nbsp;with value <code>target</code>.</p>
 
 <p>Note&nbsp;that once you delete a leaf node with value <code>target</code><strong>,&nbsp;</strong>if it's parent node becomes a leaf node and has the value <code><font face="monospace">target</font></code>, it should also be deleted (you need to continue doing that until you can't).</p>
