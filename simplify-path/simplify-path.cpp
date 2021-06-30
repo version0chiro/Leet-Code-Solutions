@@ -6,7 +6,7 @@ public:
         string temp="";
         for(int i=0;i<path.size();i++){
             if(path[i]=='/'){
-                cout<<temp<<" ";
+                // cout<<temp<<" ";
                 // if(temp=="."){
                 //     continue;
                 // }
