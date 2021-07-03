@@ -3,6 +3,7 @@ public:
     stack<int> ans;
     bool check=0;
     void dfs(vector<int> adj[],int v,vector<bool> &visited,vector<bool> recStack){
+        if(check) return;
         visited[v]=true;
         recStack[v]=true;
         
@@ -29,13 +30,14 @@ public:
         vector<bool> resStack(numCourses+1,false);
 
         for(int i=0;i<numCourses;i++){
+            if(check==1) return {};
             if(!visited[i]){
                 dfs(adj,i,visited,resStack);
             }
         }
         
-        if(check==1) return {};
         
+        if(check==1) return {};
         while(ans.size()){
             cout<<ans.top()<<" ";
             res.push_back(ans.top());
