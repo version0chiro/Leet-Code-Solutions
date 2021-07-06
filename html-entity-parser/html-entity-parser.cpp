@@ -18,7 +18,7 @@ public:
                 temp="&";
             }
             else if(a==' ' || a==';'){
-                if(a==';') cout<<temp<<" ";
+                
                 if(m.find(temp)!=m.end()){
                     ans+=m[temp];
                 }else{
