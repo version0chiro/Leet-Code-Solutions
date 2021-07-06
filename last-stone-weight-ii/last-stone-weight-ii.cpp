@@ -29,14 +29,19 @@ public:
             }
         }
         
+     
         
-        int minCount = INT_MAX;
+        int minDiff=INT_MAX;
         
-        int i = sum/2;
-        for(; i>=0; i--) {
-            if(t[n][i] == true)
+        
+        
+        for(int j=sum/2;j>=0;j--){
+            if(t[n][j]){
+                minDiff = sum-2*j;
                 break;
+            }
         }
-        return (sum-2*i);
+        
+        return minDiff;
     }
 };
