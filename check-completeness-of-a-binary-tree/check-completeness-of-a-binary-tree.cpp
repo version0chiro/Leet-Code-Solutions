@@ -42,13 +42,13 @@ public:
             if(!flag){
                 
                 for(int i=0;i<tempVec.size();i++){
-                    cout<<tempVec[i]<<" ";
+                    // cout<<tempVec[i]<<" ";
                     if(flag && tempVec[i]!=-1) if(q.size()) return false;
                     if(tempVec[i]==-1) flag=true;
                 }
             }
             
-            cout<<endl;
+            // cout<<endl;
             
         }
         
