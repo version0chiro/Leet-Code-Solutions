@@ -1,18 +1,23 @@
 class Solution {
 public:
-    bool dfs(vector<vector<bool>> &g, int i , int j){
-        if(min(i,j)<0 || i>=g.size() || j>=g[0].size() || !g[i][j]) return false;
+    
+    bool dfs(vector<vector<int>> &mat,int x,int y){
+        if(min(x,y)<0 || x>=mat.size() || y>=mat[0].size() || mat[x][y]==0){
+            return false;
+        }
         
-        if(i==g.size()-2 && j==g[i].size()-2) return true;
         
-        g[i][j]=false;
+        if(x==mat.size()-2 && y==mat[0].size()-2) return true;
         
-        return dfs(g,i+1,j) || dfs(g,i-1,j)||dfs(g,i,j+1)||dfs(g,i,j-1);
+        
+        mat[x][y]=0;
+        
+        return dfs(mat,x+1,y) || dfs(mat,x-1,y) || dfs(mat,x,y+1) || dfs(mat,x,y-1);
     }
     bool hasValidPath(vector<vector<int>>& grid) {
-        int m = grid.size(), n= grid[0].size();
+        int m = grid.size(),n=grid[0].size();
         
-        vector<vector<bool>> g(m*3,vector<bool> (n*3));
+        vector<vector<int>> g(m*3,vector<int>(n*3,0));
         
         for(auto i=0;i<m;i++){
             for(int j=0;j<n;j++){
@@ -26,6 +31,8 @@ public:
             
         }
         
+        
         return dfs(g,1,1);
+        
     }
 };
