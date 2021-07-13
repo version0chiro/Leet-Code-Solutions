@@ -9,30 +9,30 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2019/11/28/matrix.png" style="width: 409px; height: 86px;">
-<pre style="position: relative;"><strong>Input:</strong> mat = [[0,0],[0,1]]
+<pre><strong>Input:</strong> mat = [[0,0],[0,1]]
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> One possible solution is to flip (1, 0) then (0, 1) and finally (1, 1) as shown.
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> mat = [[0]]
+<pre><strong>Input:</strong> mat = [[0]]
 <strong>Output:</strong> 0
 <strong>Explanation:</strong> Given matrix is a zero matrix. We don't need to change it.
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong>Example 3:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> mat = [[1,1,1],[1,0,1],[0,0,0]]
+<pre><strong>Input:</strong> mat = [[1,1,1],[1,0,1],[0,0,0]]
 <strong>Output:</strong> 6
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong>Example 4:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> mat = [[1,0,0],[1,0,0]]
+<pre><strong>Input:</strong> mat = [[1,0,0],[1,0,0]]
 <strong>Output:</strong> -1
 <strong>Explanation:</strong> Given matrix can't be a zero matrix
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
