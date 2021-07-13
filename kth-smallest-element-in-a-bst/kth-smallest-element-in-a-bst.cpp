@@ -18,8 +18,12 @@ public:
         
         solve(root->left);
         k_time--;
-        if(k_time==0)
+        if(k_time==0){
+            
             ans=root->val;
+            return;
+        }
+        
         // cout<<root->val<<" ";
         solve(root->right);
     }
