@@ -25,7 +25,6 @@ public:
         
         int left = solve(root->left);
         int right = solve(root->right);
-        cout<<"for "<<root->val<<" "<<left<<" :: "<<right<<"\n";
         if(left==0 && right==0 && root->val == 0){
             root->val=-1;
             return 0;
