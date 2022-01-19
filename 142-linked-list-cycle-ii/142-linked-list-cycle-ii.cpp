@@ -7,26 +7,33 @@
  * };
  */
 class Solution {
-    
 public:
     ListNode *detectCycle(ListNode *head) {
-     
-        map<ListNode*,int> m;
-        if(!head){
-            return NULL;
-        }
-        int count=1;
-        ListNode* pointer = head;
-        while(pointer){
-            cout<<pointer->val<<" "<<endl;
-            if(m[pointer]==0){
-                m[pointer] = count;
-            }else{
-                return pointer;
+        if(!head || !head->next) return NULL;
+        ListNode* fastPointer = head;
+        ListNode* slowPointer = head;
+        
+        while(fastPointer->next && fastPointer->next->next ){
+            fastPointer = fastPointer->next->next;
+            slowPointer = slowPointer ->next;
+            if(fastPointer == slowPointer ){
+                // break;
+               while(slowPointer!=head){
+                   cout<<head->val<<" "<<slowPointer->val<<endl;
+                 head=head->next;
+                 slowPointer=slowPointer->next;
+                }
+                return head;
             }
-            pointer = pointer->next;
-            count++;
+            
         }
+        
+        if(fastPointer == NULL || fastPointer->next==NULL || slowPointer==NULL) return NULL;
+        
+        
+        
+        
+        
         
         return NULL;
     }
