@@ -2,7 +2,7 @@ class Solution {
 public:
     bool detectCapitalUse(string word) {
         
-        cout<<(int)'a'<<" "<<(int)'A'<<" "<<(int)'z'<<" "<<(int)'Z';
+        
         
         int lowerCaseLL = 97,lowerCaseUL = 122, upperCaseLL = 65, upperCaseUL = 90;
         
