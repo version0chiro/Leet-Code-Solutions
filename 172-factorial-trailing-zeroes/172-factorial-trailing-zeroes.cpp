@@ -1,12 +1,9 @@
 class Solution {
 public:
     int trailingZeroes(int n) {
-        int ans = 0;
-        for(int i=0;i<6;i++){
-            ans+=n/pow(5,i+1);
-        }
         
         
-        return ans;
+        
+        return n/5+n/25+n/125+n/625+n/3125;
     }
 };
