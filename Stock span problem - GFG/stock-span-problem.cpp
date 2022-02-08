@@ -10,7 +10,7 @@ class Solution
 {
     public:
     //Function to calculate the span of stockâ€™s price for all n days.
-    vector <int> calculateSpan(int A[], int n)
+    vector <int> calculateSpan(int price[], int n)
     {
        // Your code here
       vector<int> ans(n,1);
@@ -26,16 +26,23 @@ class Solution
        
     //   return ans;
         
-        ans[0] = 1;
- 
-    // Calculate span values for rest of the elements
-    for (int i = 1; i < n; i++) {
-        int counter = 1;
-        while ((i - counter) >= 0 && A[i] >= A[i - counter]) {
-            counter += ans[i - counter];
+        stack<int> st;
+        
+        st.push(0);
+        
+        ans[0] = (1);
+        
+        for(int i=1;i<n;i++){
+            while(!st.empty() && price[st.top()]<=price[i]) st.pop();
+            
+           ans[i] = (
+                st.empty()? i+1: i-st.top()
+                );
+            
+            st.push(i);
+                
+            
         }
-        ans[i] = counter;
-    }
         
         return ans;
     
