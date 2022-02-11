@@ -11,22 +11,22 @@ class Solution
     vector<long long> nextLargerElement(vector<long long> arr, int n){
         // Your code here
         vector<long long> ans;
-        stack<long long> st;
+        stack<long long> s;
         
         for(int i=n-1;i>=0;i--){
-            if(st.size()==0) ans.push_back(-1);
-            
-            else if(st.size()>0 && st.top()>arr[i]) ans.push_back(st.top());
-            
-            else if(st.size()>0 && st.top()<=arr[i]){
-                while(st.size()>0 && st.top()<=arr[i]) st.pop();
-                
-                if(st.size()==0) ans.push_back(-1);
-                else ans.push_back(st.top());
+            while(s.size() && s.top()<arr[i]){
+                s.pop();
             }
             
-            st.push(arr[i]);
+            if(s.empty()){
+                ans.push_back(-1);
+            }else{
+                ans.push_back(s.top());
+            }
+            
+            s.push(arr[i]);
         }
+        
         
         reverse(ans.begin(),ans.end());
         
