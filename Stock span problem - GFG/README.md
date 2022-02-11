@@ -7,7 +7,7 @@ For example, if an array of 7 days prices is given as {100, 80, 60, 70, 60, 75, 
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input</strong>: 
+<pre><span style="font-size:18px"><strong>Input</strong>: 
 N = 7, price[] = [100 80 60 70 60 75 85]
 <strong>Output</strong>:
 1 1 1 2 1 4 6
@@ -18,11 +18,11 @@ span is 1, 60 is smaller than 80 so the
 span is 1, 70 is greater than 60 so the 
 span is 2 and so on. Hence the output will 
 be 1 1 1 2 1 4 6.
-</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</span></pre>
 
 <p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input</strong>: 
+<pre><span style="font-size:18px"><strong>Input</strong>: 
 N = 6, price[] = [10 4 5 90 120 80]
 <strong>Output</strong>:
 1 1 2 4 5 1
@@ -31,7 +31,7 @@ Traversing the given input span for 10
 will be 1, 4 is smaller than 10 so the 
 span will be 1, 5 is greater than 4 so 
 the span will be 2 and so on. Hence, the 
-output will be&nbsp;1 1 2 4 5 1.</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+output will be&nbsp;1 1 2 4 5 1.</span></pre>
 
 <p><span style="font-size:18px"><strong>User Task:</strong><br>
 The task is to complete the function&nbsp;<strong>calculateSpan</strong>() which takes two parameters, an array<strong> price[] </strong>denoting the price of stocks, and an integer <strong>N </strong>denoting the size of the array and number of days. This function finds the span of stock's price for all N&nbsp;days and returns an array of length <strong>N</strong> denoting the span for the i-th day.</span></p>
