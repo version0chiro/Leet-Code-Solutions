@@ -19,22 +19,25 @@ public:
     {
         if (arr[j] < pivot)
         {
-            temp1 = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp1;
+            swap(arr[j],arr[i]);
+            // temp1 = arr[i];
+            // arr[i] = arr[j];
+            // arr[j] = temp1;
             i++;
         }
         else if(arr[j] == pivot)
         {
-            temp1 = arr[j];
-            arr[j] = arr[high];
-            arr[high] = temp1;
+            swap(arr[j],arr[high]);
+            // temp1 = arr[j];
+            // arr[j] = arr[high];
+            // arr[high] = temp1;
             j--;
         }
     }
-    temp2 = arr[i];
-    arr[i] = arr[high];
-    arr[high] = temp2;
+    // temp2 = arr[i];
+    // arr[i] = arr[high];
+    // arr[high] = temp2;
+    swap(arr[high],arr[i]);
  
     // Return the partition index of
     // an array based on the pivot
