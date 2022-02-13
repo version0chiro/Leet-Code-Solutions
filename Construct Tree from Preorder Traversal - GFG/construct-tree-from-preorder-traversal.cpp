@@ -67,12 +67,12 @@ void solve(Node* &root,int n,int pre[],char preLN[],int &i){
     
     // cout<<pre[i]<<" ";
     
-    if(preLN[i]=='N'){
-        i++;
+    if(preLN[i++]=='N'){
+        // i++;
         root->left = new Node(-1);
         solve(root->left,n,pre,preLN,i);
         
-        i++;
+        // i++;
         root->right = new Node(-1);
         
         
