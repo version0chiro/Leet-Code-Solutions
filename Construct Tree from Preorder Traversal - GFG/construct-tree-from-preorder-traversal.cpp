@@ -58,37 +58,41 @@ struct Node
 };
 */
 // function should return the root of the new binary tree formed
+int i =0;
 
-
-Node* solve(int n,int pre[],char preLN[],int &i){
-    if(i>=n) return NULL;
+void solve(Node* &root,int n,int pre[],char preLN[],int &i){
+    if(i>=n) return;
     
-    Node* root = new Node(pre[i]);
+    root->data = pre[i];
     
     // cout<<pre[i]<<" ";
     
     if(preLN[i]=='N'){
         i++;
-        root->left = solve(n,pre,preLN,i);
+        root->left = new Node(-1);
+        solve(root->left,n,pre,preLN,i);
         
         i++;
-        root->right = solve(n,pre,preLN,i);
+        root->right = new Node(-1);
+        
+        
+        solve(root->right,n,pre,preLN,i);
+    }else{
+        return;
     }
-    
-    
-    return root;
 }
 
 struct Node *constructTree(int n, int pre[], char preLN[])
 {
     
     // Code here
-    // Node* root = new Node(-1);
+    Node* root = new Node(-1);
     
     int i =0;
     
-    return solve(n,pre,preLN,i);
+    solve(root,n,pre,preLN,i);
     
     // cout<<endl;
     
+    return root;
 }
