@@ -5,47 +5,36 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-
     
-
+    bool DFS(int i,vector<int>adj[],vector<int>&col){
+        
+        for(auto a:adj[i]){
+            if(col[a]==-1){
+                col[a]=!col[i];
+                if(! DFS(a,adj,col)) return false;
+            }else if(col[a]==col[i]){
+                // cout<<a<<" "<<i<<" "<<col[a]<<" ";
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
 	bool isBipartite(int V, vector<int>adj[]){
 	    // Code here
-	    queue<int> q;
 	    
 	    vector<int> col(V+1,-1);
 	    
-	    
 	    for(int i=0;i<V;i++){
 	        if(col[i]==-1){
-	            q.push(i);
 	            col[i]=0;
-	    while(q.size()){
-	        int s=q.size();
-	        
-	        for(int i=0;i<s;i++){
-	            auto curr = q.front();
-	            q.pop();
-	            
-	            for(auto a:adj[curr]){
-	                if(col[a]==-1){
-	                    col[a]=!col[curr];
-	                    q.push(a);
-	                }
-	                
-	                else if(col[a]==col[curr])
-	                    return false;
-	            }
-	            
-	        }
-	    }
+	            if(!DFS(i,adj,col))
+	            return false;
 	        }
 	    }
 	    
-	    
-	    return true;
-	    
-	    
-	    
+	     return true;
 	}
 
 };
