@@ -99,7 +99,7 @@ class Solution{
   public:
     // root : the root Node of the given BST
     // target : the target sum
-    unordered_map<int,int> m;
+    set<int> m;
     
     
     
@@ -112,7 +112,7 @@ class Solution{
         if(m.find(target-root->data)!=m.end()) return 1;
         
         else{
-            m[root->data]++;
+            m.insert(root->data);
         }
         
         if(isPairPresent(root->right,target)) return 1;
