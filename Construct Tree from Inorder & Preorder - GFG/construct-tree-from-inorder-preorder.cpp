@@ -53,14 +53,7 @@ class Solution{
         
         if(inStrt==inEnd) return tNode;
         
-        int inIndex = -1;
-        
-        for(int i=inStrt;i<=inEnd;i++){
-            if(in[i]==tNode->data) {
-                inIndex=i;
-                break;
-            }
-        }
+        int inIndex = mp[curr];
         
         tNode->left = solve(in,pre,inStrt,inIndex-1,mp);
         tNode->right = solve(in,pre,inIndex+1,inEnd,mp);
@@ -73,9 +66,9 @@ class Solution{
         // Code here
         unordered_map<int,int> m;
         
-        // for(int i=0;i<n;i++){
-        //     m[in[i]]=i;
-        // }
+        for(int i=0;i<n;i++){
+            m[in[i]]=i;
+        }
         
         return solve(in,pre,0,n-1,m);
         
