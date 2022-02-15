@@ -11,26 +11,52 @@ class Solution
 {
     public:
     //Function to find if there is a celebrity in the party or not.
+    bool knows(int i,int j,vector<vector<int>> &M){
+        if(M[i][j]) return true;
+        
+        return false;
+    }
+    
+    int solve(int n,vector<vector<int>>& M){
+        if(n==0){
+            return -1;
+        }
+        
+        int id = solve(n-1,M);
+        
+        if(id==-1) return n-1;
+        
+        if(knows(id,n-1,M)) return n-1;
+        
+        if(knows(n-1,id,M)) return id;
+        
+        return -1;
+    }
+    
     int celebrity(vector<vector<int> >& M, int n) 
     {
         // code here 
-        vector<int> indegree(n+1,0);
-        vector<int> outdegree(n+1,0);
+        
+        int id = solve(n,M);
+        
+        if(id==-1) return id;
+        
+        
+        int c1=0,c2=0;
         
         for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(M[i][j]==1){
-                    indegree[j]++;
-                    outdegree[i]++;
-                }
+            if(i!=id){
+                c1+=knows(id,i,M);
+                c2+=knows(i,id,M);
             }
         }
         
-        for(int i=0;i<n;i++){
-            if(indegree[i]==n-1 && outdegree[i]==0) return i;
-        }
+        if(c1==0 && c2==n-1) return id;
+        
+        
         
         return -1;
+        
     }
 };
 
