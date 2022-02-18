@@ -17,45 +17,69 @@ public :
 */
 
 class Solution{
-    
-    stack<int> s,s2;
-    
+    int minEle;
+    stack<int> s;
     public:
     
        /*returns min element from stack*/
        int getMin(){
-           if(s.size()==0 ) return -1;
-           return s2.top();
+           
            //Write your code here
+           if(s.size()==0) return -1;
+           
+           return minEle;
        }
        
        /*returns poped element from stack*/
-       int pop(){
-           
-          if(s.size()==0) return -1;
-          
-          int ans = s.top();
-           
-           s.pop();
-           s2.pop();
-           
-           return ans;
-           
-           //Write your code here
-       }
+       int pop()
+    {
+        if (s.empty())
+        {
+            // cout << "Stack is empty\n";
+            return -1;
+        }
+ 
+        // cout << "Top Most Element Removed: ";
+        int t = s.top();
+        s.pop();
+ 
+        // Minimum will change as the minimum element
+        // of the stack is being removed.
+        if (t < minEle)
+        {
+            // cout << minEle << "\n";
+            minEle = 2*minEle - t;
+            return (t+minEle)/2;
+        }
+ 
+        else
+            return t;
+            // cout << t << "\n";
+    }
        
        /*push element x into the stack*/
-       void push(int x){
+       void push(int x)
+    {
+        // Insert new number into the stack
+        if (s.empty())
+        {
+            minEle = x;
+            s.push(x);
+            
+            return;
+        }
+ 
+        // If new number is less than minEle
+        else if (x < minEle)
+        {
+            s.push(2*x - minEle);
+            minEle = x;
+        }
+ 
+        else
            s.push(x);
-           
-           if(s2.size()==0){
-               s2.push(x);
-           }
-           else{
-            s2.push(min(x,s2.top()));
-           }
-           //Write your code here
-       }
+ 
+    }
 };
 
 // { Driver Code Starts.
