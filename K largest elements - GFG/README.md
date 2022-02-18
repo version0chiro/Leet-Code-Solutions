@@ -5,23 +5,23 @@
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:
+<pre><span style="font-size:18px"><strong>Input:
 </strong>N = 5, k = 2
 arr[] = {12,5,787,1,23}
 <strong>Output: </strong>787 23<strong>
 Explanation: </strong>First largest element in
 the array is 787 and the second largest
 is 23.</span>
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:
+<pre><span style="font-size:18px"><strong>Input:
 </strong>N = 7, k = 3
 arr[] = {1,23,12,9,30,2,50}
 <strong>Output: </strong>50 30 23<strong>
 Explanation: </strong>Three Largest element in
-the array are 50, 30 and 23.</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+the array are 50, 30 and 23.</span></pre>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
 Complete the function <strong>kLargest()</strong> that takes the array, N and K as input parameters and returns a list of k largest element in descending order.&nbsp;</span></p>
