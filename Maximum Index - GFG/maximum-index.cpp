@@ -22,6 +22,11 @@ class Solution{
             rMax[i]=max(rMax[i+1],A[i]);
         }
         
+        // for(int i=0;i<N;i++){
+            
+        //     cout<<rMax[i]<<" ";
+        // }
+        
         
         int ans  = INT_MIN;
         
