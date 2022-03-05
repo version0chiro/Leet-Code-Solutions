@@ -8,25 +8,36 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-    set<string> ans;
-    set<string> s;
-    bool dfs(vector<vector<char>>&board ,int i,int j,string word,int n ,int m)
-    {
-        if(word.size()==0) return true;
-        if(i<0 or i>=n or j<0 or j>=m or board[i][j]!=word[0]) return false;
-        char temp=board[i][j];
-        string check=word.substr(1);
-        board[i][j]='#';
-        bool ans = dfs(board,i-1,j-1,check,n,m);
-        ans|= dfs(board,i-1,j,check,n,m);
-        ans|= dfs(board,i-1,j+1,check,n,m);
-        ans|= dfs(board,i,j-1,check,n,m);
-        ans|= dfs(board,i,j+1,check,n,m);
-        ans|= dfs(board,i+1,j-1,check,n,m);
-        ans|= dfs(board,i+1,j,check,n,m);
-        ans|= dfs(board,i+1,j+1,check,n,m);
-        board[i][j]=temp;
+
+    
+    bool dfs(vector<vector<char>>  &board,int i,int j,string temp,string check){
+        if(check.size()==0) return true;
+        if(i<0 ||j<0 || i>=board.size() || j>=board[0].size() || board[i][j]=='0' || board[i][j]!=check[0]) return false;
+        
+        check = check.substr(1);
+        
+        auto tempC = board[i][j];
+        
+        board[i][j]='0';
+        
+        
+        bool ans = false;
+        ans |= dfs(board,i+1,j,temp,check);
+        ans |=dfs(board,i,j+1,temp,check);
+        ans |=dfs(board,i-1,j,temp,check);
+        ans |=dfs(board,i,j-1,temp,check);
+        
+        ans |=dfs(board,i+1,j+1,temp,check);
+        ans |=dfs(board,i+1,j-1,temp,check);
+        ans |=dfs(board,i-1,j+1,temp,check);
+        ans |=dfs(board,i-1,j-1,temp,check);
+        
+        board[i][j]=tempC;
+        
         return ans;
+        
+        
+        
     }
     
     bool find(vector<vector<char>> &board,string word){
@@ -35,7 +46,7 @@ public:
         
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                if(dfs(board,i,j,word,n,m)) return true;
+                if(dfs(board,i,j,"",word)) return true;
             }
         }
         
@@ -44,12 +55,13 @@ public:
     
 	vector<string> wordBoggle(vector<vector<char> >& board, vector<string>& dictionary) {
 	    // Code here
-	    	    vector<string> finalAns;
+	    
+	    vector<string> finalAns;
 	   for(auto a:dictionary){
 	       if(find(board,a)) finalAns.push_back(a);
 	   }
 	    
-
+	    
 	    return finalAns;
 	    
 	}
