@@ -83,6 +83,7 @@ class Solution
     {
         // code here
         // just remove the loop without losing any nodes
+        if(!head && !head->next) return;
         Node* slow = head->next;
         Node* fast= head->next->next;
         
