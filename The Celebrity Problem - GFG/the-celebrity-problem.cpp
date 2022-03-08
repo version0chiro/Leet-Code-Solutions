@@ -11,52 +11,40 @@ class Solution
 {
     public:
     //Function to find if there is a celebrity in the party or not.
-    bool knows(int i,int j,vector<vector<int>> &M){
-        if(M[i][j]) return true;
-        
-        return false;
-    }
-    
-    int solve(int n,vector<vector<int>>& M){
-        if(n==0){
-            return -1;
-        }
-        
-        int id = solve(n-1,M);
-        
-        if(id==-1) return n-1;
-        
-        if(knows(id,n-1,M)) return n-1;
-        
-        if(knows(n-1,id,M)) return id;
-        
-        return -1;
-    }
-    
     int celebrity(vector<vector<int> >& M, int n) 
     {
         // code here 
-        
-        int id = solve(n,M);
-        
-        if(id==-1) return id;
-        
-        
-        int c1=0,c2=0;
+        stack<int> st;
         
         for(int i=0;i<n;i++){
-            if(i!=id){
-                c1+=knows(id,i,M);
-                c2+=knows(i,id,M);
-            }
+            st.push(i);
         }
         
-        if(c1==0 && c2==n-1) return id;
+        while(st.size()>1){
+            auto f = st.top();
+            st.pop();
+            auto s = st.top();
+            st.pop();
+            
+            if(M[f][s] ) st.push(s);
+            
+            else  st.push(f);
+            
+            // else if(!M[f][s] && !M[s][f]) st.push(f),st.push(s);
+            
+            
+        } 
         
+        if(st.size()==0) return -1;
         
+        int poC = st.top(); 
+        st.pop();
         
-        return -1;
+        for(int i=0;i<n;i++){
+            if((i!=poC) && (M[poC][i] || !M[i][poC])) return -1;
+        }
         
+        return poC;
     }
 };
 
