@@ -114,19 +114,25 @@ int ans = INT_MIN;
         
         return max(l,r)+root->data;
     }
-    
+    int maxPathSum(Node* root)
+    {
+        // code here
+        if(!root) return ans;
+        
+        int val = solve(root);
+        
+        
+        if(root->left== NULL || root->right==NULL){
+            ans=max(ans,val);
+        }
         
         // maxPathSum(root->left);
         
         // maxPathSum(root->right);
         
-    int maxPathSum(Node *root)
-   {
-     int sum = solve(root);
-     if(!root->left or !root->right)
-           ans = max(sum, ans);
-     return ans;
-   }
+        return ans;
+        
+    }
 };
 
 // { Driver Code Starts.
