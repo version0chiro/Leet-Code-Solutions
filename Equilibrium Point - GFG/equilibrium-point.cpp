@@ -11,25 +11,20 @@ class Solution{
     // n: size of array
     int equilibriumPoint(long long a[], int n) {
     
-        // Your code here
-
-        int total=0;
-        for(int i=0;i<n;i++){
-            total+=a[i];
-            // m[i]=total;
-        }
-        int total2=0;
-        for(int i=n-1;i>=0;i--){
-            total2=total2+a[i];
-            // cout<<total<<" "<<total2<<" \n";
-            if(total==total2) return i+1;
-            total=total-a[i];
-            
-        }
-        
-        return -1;
-        
-        
+     int s1 = 0;
+     for(int i=0;i<n;i++){
+         s1+=a[i];
+     }
+     
+     int s2=0;
+     
+     for(int i=n-1;i>=0;i--){
+         s2+=a[i];
+         if(s1==s2) return i+1;
+         s1-=a[i];
+     }
+     
+     return -1;
     }
 
 };
