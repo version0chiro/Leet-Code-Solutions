@@ -8,15 +8,15 @@ class Solution{
 public:
 	void merge(int arr1[], int arr2[], int n, int m) {
 	    // code here
-	    int s1=0,s2=0,k=n-1;
+	    int i=0,j=0,k=n-1;
 	    
-	    while(s1<=k && s2<m){
-	        if(arr1[s1]>arr2[s2]){
-	            swap(arr1[k],arr2[s2]); 
+	    while(i<=k && j<m){
+	        if(arr1[i]>arr2[j]){
+	            swap(arr2[j],arr1[k]);
 	            k--;
-	            s2++;
+	            j++;
 	        }else{
-	            s1++;
+	            i++;
 	        }
 	    }
 	    
