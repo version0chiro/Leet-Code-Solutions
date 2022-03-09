@@ -1,5 +1,5 @@
 # Merge Without Extra Space
-## Hard 
+##  Hard 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given two sorted arrays arr1[]&nbsp;of size N and arr2[]&nbsp;of size M. Each array is sorted in non-decreasing order. Merge the two&nbsp;arrays into one sorted array in non-decreasing order without using any extra space.</span></p>
 
