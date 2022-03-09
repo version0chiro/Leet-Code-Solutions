@@ -9,7 +9,7 @@
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:
+<pre><span style="font-size:18px"><strong>Input:
 </strong>N = 2
 valueN[] = {4,5}
 M = 3
@@ -18,11 +18,11 @@ valueM[] = {3,4,5}
 Explanation: </strong>For the given two linked
 list (4 5) and (3 4 5), after adding
 the two linked list&nbsp;resultant linked
-list will be (3&nbsp;9 0).</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+list will be (3&nbsp;9 0).</span></pre>
 
 <p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:
+<pre><span style="font-size:18px"><strong>Input:
 </strong>N = 2
 valueN[] = {6,3}
 M = 1
@@ -31,7 +31,7 @@ valueM[] = {7}
 Explanation: </strong>For the given two linked
 list (6 3) and (7), after adding the
 two linked list&nbsp;resultant linked list
-will be (7 0).</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+will be (7 0).</span></pre>
 
 <p><span style="font-size:18px"><strong>Your&nbsp;Task:</strong><br>
 The task is to complete the function <strong>addTwoLists</strong>() which has node reference of both the linked lists and returns the head of the sum list. &nbsp;&nbsp;</span></p>
