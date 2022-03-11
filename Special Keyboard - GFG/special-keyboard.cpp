@@ -9,8 +9,11 @@ using namespace std;
 
 class Solution{
 public:
+
     long long int optimalKeys(int N){
         // code here
+        
+        
         if(N<=6) return N;
         
         vector<int> dp(N+1,0);
