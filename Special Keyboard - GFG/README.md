@@ -1,5 +1,5 @@
 # Special Keyboard
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Imagine you have a special keyboard with the following keys:&nbsp;</span></p>
 
