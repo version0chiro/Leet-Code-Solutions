@@ -104,11 +104,16 @@ struct Node
 class Solution{
     public:
     //Function to check whether a binary tree is balanced or not.
+    bool flag = true;
     int solve(Node *root){
        if(!root) return 0;
        
        int l =  solve(root->left);
        int r = solve(root->right);
+       
+       if(abs(l-r)>1){
+           flag=false;
+       }
        
        return 1+max(l,r);
     }
@@ -116,10 +121,8 @@ class Solution{
     bool isBalanced(Node *root)
     {
         if(!root) return true;
-        
-        bool ans = abs(solve(root->left)-solve(root->right))<=1;
-        
-        return ans && isBalanced(root->left) && isBalanced(root->right);
+        solve(root);
+        return flag;
         //  Your Code here
     }
 };
