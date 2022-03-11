@@ -105,16 +105,27 @@ struct Node
 
 class Solution {
 public:
-     vector<int> ans;
+    vector<int> ans;
     
-    void leftView(Node *root){
+    void leftV(Node *root){
         if(!root || (!root->left && !root->right)) return;
         
         ans.push_back(root->data);
-        if(root->left)
-            leftView(root->left);
-        else
-            leftView(root->right);
+        
+        if(root->left) leftV(root->left);
+        
+        else leftV(root->right);
+    }
+    
+    void rightV(Node *root){
+        if(!root || (!root->left && !root->right)) return;
+        
+        if(root->right) rightV(root->right);
+        
+        else rightV(root->left);
+        
+        ans.push_back(root->data);
+        
     }
     
     void leafs(Node *root){
@@ -128,34 +139,28 @@ public:
         leafs(root->left);
         
         leafs(root->right);
+        
     }
     
-    void rightView(Node *root){
-        if(!root ||  (!root->left && !root->right)) return;
-        
-        if(root->right)
-        rightView(root->right);
-        else
-        rightView(root->left);
-        
-        ans.push_back(root->data);
-    }
+    
+    
     
     vector <int> boundary(Node *root)
     {
         //Your code here
-        
         ans.push_back(root->data);
         
-        leftView(root->left);
+        leftV(root->left);
         
         leafs(root->left);
         
         leafs(root->right);
         
-        rightView(root->right);
+        
+        rightV(root->right);
         
         return ans;
+        
     }
 };
 
