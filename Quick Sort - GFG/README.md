@@ -1,5 +1,5 @@
 # Quick Sort
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Quick Sort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot.<br>
 Given an array arr[], its starting position low and its ending position high.</span></p>
