@@ -27,20 +27,23 @@ class Solution{
     int tour(petrolPump p[],int n)
     {
        //Your code here
-       int capacity = 0;
-       int start = 0;
+       int cap = 0;
        int defi = 0;
+       int start = 0;
        
        for(int i=0;i<n;i++){
-           capacity += p[i].petrol - p[i].distance;
-           if(capacity<0){
-               defi=defi+capacity;
-               capacity=0;
-               start=1+i;
+           cap=cap+p[i].petrol-p[i].distance;
+           
+           if(cap<0){
+               defi+=cap;
+               cap=0;
+               start=i+1;
            }
        }
        
-       if(capacity+defi>=0) return start;
+       
+        if(cap+defi>=0) return start;
+       
        
        return -1;
     }
