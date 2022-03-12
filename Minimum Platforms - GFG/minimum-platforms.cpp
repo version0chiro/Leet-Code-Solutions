@@ -13,6 +13,12 @@ class Solution{
     int findPlatform(int arr[], int dep[], int n)
     {
     	// Your code here
+    	
+    	// two pointers one for the arrival and one for dept, sort both the arrays and make one platform as the first train will need that
+    	// if arr[i]<=dep[j] means the next bus needs a new plat form so counter++, move to the next arrival (i++)
+        // if arr[i]>dep[j] means the next bus will come after the previous has left, so one platform less needed counter-- move to the next departure (j++)
+        
+        // at each point find max of counter
     	int i =1,j=0;
     	
     	sort(arr,arr+n);
