@@ -11,32 +11,43 @@ class Solution {
         int n = s.size();
         int m = s2.size();
         
-        int t[n+1][m+1];
+        // int t[n+1][m+1];
         
-        memset(t,0,sizeof(t));
+        // memset(t,0,sizeof(t));
         
-        for(int i=0;i<=n;i++){
-            t[i][0]=i;
-        }
+        // for(int i=0;i<=n;i++){
+        //     t[i][0]=i;
+        // }
         
-        for(int j=0;j<=m;j++){
-            t[0][j]=j;
+        // for(int j=0;j<=m;j++){
+        //     t[0][j]=j;
+        // }
+        
+        
+        vector<int> curr(m+1,0);
+        vector<int> prev(m+1,0);
+        
+        
+        for(int i=0;i<=m;i++){
+            prev[i]=i;
         }
         
         
         for(int i=1;i<=n;i++){
+            curr[0]=i;
             for(int j=1;j<=m;j++){
                 if(s[i-1]==s2[j-1]){
-                    t[i][j]=t[i-1][j-1];
+                    curr[j]=prev[j-1];
                 }
                 
                 else{
-                    t[i][j]=1+min(t[i-1][j],min(t[i][j-1],t[i-1][j-1]));
+                    curr[j]=1+min(prev[j],min(curr[j-1],prev[j-1]));
                 }
             }
+            prev=curr;
         }
         
-        return t[n][m];
+        return curr[m];
     }
 };
 
