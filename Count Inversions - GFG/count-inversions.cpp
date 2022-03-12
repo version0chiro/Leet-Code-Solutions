@@ -10,20 +10,22 @@ class Solution{
     // N : Size of the Array arr[]
     // Function to count inversions in the array.
     
-    long long int merge(long long arr[],long long temp[],long long left, long long mid, long long right){
-        long long int i,j,k;
-        long long int inv_c=0;
-        i=left;
-        j=mid;
-        k=left;
+    long long int merge(long long arr[],long long temp[],int l,int mid,int r){
         
-        while(i<mid && j<=right){
+        int i,j,k;
+        long long int  inc_count=0;
+        i=l;
+        j=mid;
+        k=l;
+        
+        while(i<mid && j<=r ){
             if(arr[i]<=arr[j]){
-                temp[k++] = arr[i++];
-                
+                temp[k++]=arr[i++];
             }else{
                 temp[k++]=arr[j++];
-                inv_c+=mid-i;
+                
+                
+                inc_count+=mid-i;
             }
         }
         
@@ -32,31 +34,33 @@ class Solution{
             temp[k++]=arr[i++];
         }
         
-        while(j<=right){
+        while(j<=r){
             temp[k++]=arr[j++];
         }
         
-        for(i=left;i<=right;i++){
+        for(int i=l;i<=r;i++){
             arr[i]=temp[i];
         }
         
-        return inv_c;
+        return inc_count;
         
     }
     
-    long long int mergeSort(long long arr[],long long temp[],long long left, long long right){
-        long long int inv_c = 0;
+    long long int mergeSort(long long arr[],long long temp[],int l,int r){
+        long long int inc_count =0;
         
-        if(left<right){
-            long long int mid = (left+right)/2;
+        if(l<r){
+            int mid = (l+r)/2;
             
-            inv_c+=mergeSort(arr,temp,left,mid);
-            inv_c+=mergeSort(arr,temp,mid+1,right);
+            inc_count+=mergeSort(arr,temp,l,mid);
             
-            inv_c+=merge(arr,temp,left,mid+1,right);
+            inc_count+=mergeSort(arr,temp,mid+1,r);
+            
+            
+            inc_count+=merge(arr,temp,l,mid+1,r);
         }
         
-        return inv_c;
+        return inc_count;
     }
     
     long long int inversionCount(long long arr[], long long N)
