@@ -14,7 +14,8 @@ class Solution
     { 
         // Your code here
         
-        // check if 1 ex
+        // check if 1 exists, then make all the numbers <1 and >n to 1, now make all the numbers their negative counter parts and loop through again if any number is positvie it shows that
+        // i was missing, if nothing found return n+1
         bool oneFlag = false;
         
         for(int i=0;i<n;i++){
