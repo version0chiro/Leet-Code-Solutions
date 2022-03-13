@@ -37,7 +37,7 @@ class Solution
     }
     
     bool solve(int grid[N][N],int z){
-        if(isComplete(grid)) return true;
+        if(z==0) return true;
         
         
         for(int i=0;i<N;i++){
