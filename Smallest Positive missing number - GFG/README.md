@@ -1,5 +1,5 @@
 # Smallest Positive missing number
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">You are given an array <strong>arr</strong>[] of <strong>N</strong> integers including 0. The task is to find the smallest positive number missing from the array.</span></p>
 
