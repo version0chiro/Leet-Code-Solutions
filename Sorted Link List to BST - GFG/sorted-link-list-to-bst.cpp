@@ -86,7 +86,7 @@ class Solution{
     
     TNode* solve(vector<int> &arr,int l,int r){
         if(l>r) return NULL;
-        int mid = l+(r-l+1)/2;
+        int mid = (r+l+1)/2;
         
         TNode* root = new TNode(arr[mid]);
         
