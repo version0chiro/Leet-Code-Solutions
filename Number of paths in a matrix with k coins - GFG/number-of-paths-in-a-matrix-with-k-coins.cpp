@@ -17,11 +17,13 @@ public:
        return dp[i][j][k];
        return dp[i][j][k]=solve(i+1,j,k-a[i][j],n,a)+solve(i,j+1,k-a[i][j],n,a);
    }
-     long long numberOfPath(int n, int k, vector<vector<int>> a){
-       dp[n][n][k];
-       memset(dp,-1,sizeof(dp));
-     return solve(0,0,k,n,a);
-   }
+    long long numberOfPath(int n, int k, vector<vector<int>> arr){
+        
+        // Code Here
+        dp[n][n][k];
+        memset(dp,-1,sizeof(dp));
+        return solve(0,0,k,n,arr);
+    }
 };
 
 // { Driver Code Starts.
