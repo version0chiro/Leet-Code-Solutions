@@ -7,7 +7,7 @@ using namespace std;
 class Solution {
 public:
     long long dp[101][101][101];
-   long long check(int i,int j,int k,int n,vector<vector<int>>&a)
+    long long solve(int i,int j,int k,int n,vector<vector<int>>&a)
    {
        if(i>=n||j>=n)
        return 0;
@@ -15,12 +15,12 @@ public:
        return k==a[i][j];
        if(dp[i][j][k]!=-1)
        return dp[i][j][k];
-       return dp[i][j][k]=check(i+1,j,k-a[i][j],n,a)+check(i,j+1,k-a[i][j],n,a);
+       return dp[i][j][k]=solve(i+1,j,k-a[i][j],n,a)+solve(i,j+1,k-a[i][j],n,a);
    }
-   long long numberOfPath(int n, int k, vector<vector<int>> a){
+     long long numberOfPath(int n, int k, vector<vector<int>> a){
        dp[n][n][k];
        memset(dp,-1,sizeof(dp));
-     return check(0,0,k,n,a);
+     return solve(0,0,k,n,a);
    }
 };
 
