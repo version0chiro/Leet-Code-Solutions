@@ -31,7 +31,7 @@ public:
             }
             
             st.push(curr);
-            cout<<endl;
+            // cout<<endl;
         }
         
         for(int i=0;i<nums.size();i++){
