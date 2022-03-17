@@ -10,9 +10,9 @@ public:
         
         int count=0;
         
-        do{
+        
             int i = 0;
-            int new_x=x,new_y=y;
+            int new_x=0,new_y=0;
             
             for(int i=0;i<instructions.size();i++){
                 if(instructions[i]=='G'){
@@ -31,28 +31,12 @@ public:
                     dir=(dir+1)%4;
                 }
             }
-               // cout<<new_x<<" "<<new_y<<" "<<dir<<" \n";
-            if(new_x==0 && new_y==0) {
-                
-                return true;
-            }
+          
             
-            if(abs(new_x)>abs(x)){
-                count++;
-            }else if(abs(new_y)>abs(y)){
-                count++;
-            }
             
-            if(count>=100){
-                return false;
-            }
-            
-            x=new_x;
-            y=new_y;
-            
-        }while(1);
         
         
-        return false;
+        
+        return new_x==0 && new_y==0 || dir!=0;
     }
 };
