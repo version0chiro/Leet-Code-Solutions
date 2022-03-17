@@ -43,7 +43,7 @@ public:
                 count++;
             }
             
-            if(count>=1000){
+            if(count>=100){
                 return false;
             }
             
