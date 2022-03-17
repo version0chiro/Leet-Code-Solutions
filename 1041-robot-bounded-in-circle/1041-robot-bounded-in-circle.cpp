@@ -31,7 +31,7 @@ public:
                     dir=(dir+1)%4;
                 }
             }
-               cout<<new_x<<" "<<new_y<<" "<<dir<<" \n";
+               // cout<<new_x<<" "<<new_y<<" "<<dir<<" \n";
             if(new_x==0 && new_y==0) {
                 
                 return true;
