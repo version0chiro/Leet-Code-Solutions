@@ -7,51 +7,45 @@ class Solution {
 public:
 	bool isPossible(int N, vector<pair<int, int> >& prerequisites) {
 	    // Code here
+	    vector<int> indegree(N);
+
 	    vector<int> adj[N];
-	    
-	    int indegree[N] = {0};
 	    
 	    for(auto a:prerequisites){
 	        adj[a.second].push_back(a.first);
 	        indegree[a.first]++;
 	    }
 	    
-	    int done=0;
-	    
 	    queue<int> q;
 	    
-	    for(int i=0;i<N;i++){
+	    int done =0;
+	    
+	    
+	    for(int i=0;i<indegree.size();i++){
 	        if(indegree[i]==0){
-	            q.push(i);
+	            q.push(i);    
 	            done++;
-	            
 	        }
 	    }
-	    
-	    
 	    
 	    while(q.size()){
-	        auto temp = q.front();
+	        auto top = q.front();
 	        q.pop();
-	       // cout<<temp<<":";
-	        for(auto a:adj[temp]){
-	            
-	           // cout<<a<<" ";
+	       // vis[top]=true;
+	        for(auto a:adj[top]){
 	            indegree[a]--;
-	            
 	            if(indegree[a]==0){
-	                q.push(a);
-	                done++;
+	               // if(vis[a]==false)
+	                    done++;
+	                    q.push(a);
+	                 
 	            }
 	        }
-	       // cout<<endl;
-	        
-	        
 	    }
-	   // cout<<done<<" done \n";
-	    if(done==N) return 1;
-	    return 0;
 	    
+	    if(done==N) return true;
+	    
+	    return false;
 	    
 	}
 };
