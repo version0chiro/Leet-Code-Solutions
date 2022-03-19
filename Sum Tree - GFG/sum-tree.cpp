@@ -95,10 +95,10 @@ struct Node
 class Solution
 {
     public:
-    bool ans = true;
+    // bool ans = true;
     
     bool isLeaf(Node* root){
-        // if(!root) return true;
+        if(!root) return false;
         
         if(!root->left && !root->right) return true;
         
@@ -107,40 +107,43 @@ class Solution
     
     int solve(Node* root){
         
-        if(!ans) return 0;
+        // if(!ans) return 0;
         
         
-        if(!root) return 0;
+        if(!root) return true;
         
-        if(!root->left && !root->right) return root->data;
+        if(!root->left && !root->right) return true;
         
-        int l = solve(root->left);
-        int r = solve(root->right);
+        int l;
         
-        // if(root->left && root->right){
-        //     if(!isLeaf(root->left)){
-        //         l=2*l;
-        //     }
+        int r;
+        
+        if(solve(root->left) && solve(root->right)){
+            if(root->left==NULL){
+                l=0;
+            } else if(isLeaf(root->left)){
+                l=root->left->data;
+            }else{
+                l=2*(root->left->data);
+            }
             
-        //     if(!isLeaf(root->right)){
-        //         r=2*r;
-        //     }
-        // }
-        
-        // cout<<root->data<<" "<<l<<" "<<r<<"\n";
-        
-        if(root->data!=l+r) {
-            ans = false;
-            return -1;
+            if(root->right==NULL){
+                r=0;
+            } else if(isLeaf(root->right)){
+                r=root->right->data;
+            }else{
+                r=2*(root->right->data);
+            }
         }
         
-        return root->data+l+r;
+        
+        return root->data==l+r;
     }
     bool isSumTree(Node* root)
     {
-        solve(root);
+        return solve(root);
         
-        return ans;
+        // return ans;
          // Your code here
     }
 };
