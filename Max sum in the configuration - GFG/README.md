@@ -1,5 +1,5 @@
 # Max sum in the configuration
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array(0-based indexing), you have to find&nbsp;the&nbsp;max sum of i*A[i] where A[i]&nbsp;is the element at index i in the array.&nbsp;The only operation allowed is to rotate(clock-wise or counter clock-wise)&nbsp;the array any number of times.</span></p>
 
