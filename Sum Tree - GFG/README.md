@@ -1,5 +1,5 @@
 # Sum Tree
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><div class="entry-content">
 <p><span style="font-size:18px">Given a Binary Tree. Return <strong>true</strong>&nbsp;if, for every node <strong>X</strong>&nbsp;in the tree other than the&nbsp;leaves, its value is equal to the sum of its left subtree's value and its right subtree's value. Else return <strong>false</strong>.</span></p>
