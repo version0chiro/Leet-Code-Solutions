@@ -10,57 +10,53 @@ class Solution{
     // N : Size of the Array arr[]
     // Function to count inversions in the array.
     
-    long long int merge(long long arr[],long long temp[],int l,int mid,int r){
-        
-        int i,j,k;
-        long long int  inc_count=0;
-        i=l;
+    long long int merge(long long arr[],long long temp[],long long left,long long mid,long long end){
+        long long int i,j,k;
+        long long int inv_c = 0;
+        i=left;
         j=mid;
-        k=l;
+        k=left;
         
-        while(i<mid && j<=r ){
+        while(i<mid && j<=end){
             if(arr[i]<=arr[j]){
                 temp[k++]=arr[i++];
             }else{
                 temp[k++]=arr[j++];
+                inv_c+=mid-i;
                 
-                
-                inc_count+=mid-i;
             }
         }
-        
         
         while(i<mid){
             temp[k++]=arr[i++];
         }
-        
-        while(j<=r){
+        while(j<=end){
             temp[k++]=arr[j++];
         }
         
-        for(int i=l;i<=r;i++){
+        for(int i=left;i<=end;i++){
             arr[i]=temp[i];
         }
         
-        return inc_count;
+        return inv_c;
         
     }
     
-    long long int mergeSort(long long arr[],long long temp[],int l,int r){
-        long long int inc_count =0;
+    long long int mergeSort(long long arr[],long long temp[],long long i,long long n){
+        long long int inv_c = 0;
         
-        if(l<r){
-            int mid = (l+r)/2;
+        if(i<n){
             
-            inc_count+=mergeSort(arr,temp,l,mid);
+            int mid = (i+n)/2;
             
-            inc_count+=mergeSort(arr,temp,mid+1,r);
+            inv_c+=mergeSort(arr,temp,i,mid);
             
+            inv_c+=mergeSort(arr,temp,mid+1,n);
             
-            inc_count+=merge(arr,temp,l,mid+1,r);
+            inv_c+=merge(arr,temp,i,mid+1,n);
         }
         
-        return inc_count;
+        return inv_c;
     }
     
     long long int inversionCount(long long arr[], long long N)
