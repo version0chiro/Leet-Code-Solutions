@@ -17,28 +17,30 @@ class Solution{
     {
         
         // your code here
-        int lastE = a[0];
-        int count = 1;
+        int c = 1;
+        int curr = a[0];
         
         for(int i=1;i<size;i++){
-            if(lastE==a[i]) count++;
-            
-            else{
-                count--;
-                if(count==0) lastE=a[i],count=1;
+            if(curr==a[i]){
+                c++;
+            }else{
+                c--;
+                if(c==0){
+                    curr=a[i];
+                    c=1;
+                }
+            }
+        }
+        c=0;
+        for(int i=0;i<size;i++){
+            if(a[i]==curr){
+                c++;
             }
         }
         
-        int nC=0;
+        if(c>size/2) return curr;
         
-        for(int i=0;i<size;i++){
-            if(lastE==a[i])nC++;
-        }
-        
-        if(nC<=size/2) return -1;
-        
-        return lastE;
-        
+        return -1;
     }
 };
 
