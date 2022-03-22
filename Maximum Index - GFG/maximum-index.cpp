@@ -13,28 +13,22 @@ class Solution{
     int maxIndexDiff(int A[], int N) 
     { 
         // Your code here
-        int n = N;
-        int rMax[N];
+        int maxA[N];
         
-        rMax[N-1] = A[N-1];
+        maxA[N-1]=A[N-1];
         
-        for(int i=n-2;i>=0;i--){
-            rMax[i]=max(rMax[i+1],A[i]);
+        for(int i=N-2;i>=0;i--){
+            maxA[i]=max(maxA[i+1],A[i]);
         }
         
-        // for(int i=0;i<N;i++){
-            
-        //     cout<<rMax[i]<<" ";
-        // }
-        
-        
-        int ans  = INT_MIN;
         
         int i=0,j=0;
         
-        while(i<n && j<n){
-            if(rMax[j]>=A[i]){
-                ans = max(ans,j-i);
+        int ans = INT_MIN;
+        
+        while(i<N && j<N){
+            if(A[i]<=maxA[j]){
+                ans = max(j-i,ans);
                 j++;
             }else{
                 i++;
