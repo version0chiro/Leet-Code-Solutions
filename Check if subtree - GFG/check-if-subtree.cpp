@@ -98,16 +98,23 @@ class Solution
 {
   public:
     //Function to check if S is a subtree of tree T.
-    bool match(Node* T,Node* S){
+    bool solve(Node* T,Node* S){
         if(!T && !S) return true;
+        
         if(!T || !S) return false;
         
-        return T->data == S->data  && match(T->left,S->left) && match(T->right,S->right);
+        if(T->data!=S->data) return false;
+        
+        return solve(T->left,S->left) && solve(T->right,S->right);
     }
     bool isSubTree(Node* T, Node* S) 
     {
         // Your code here
-        return match(T,S) || (T->left && isSubTree(T->left,S)) || (T->right && isSubTree(T->right,S));
+        if(!T && !S) return true;
+        
+        if(!T || !S) return false;
+        
+        return solve(T,S) || isSubTree(T->left,S) || isSubTree(T->right,S);
         
     }
 };
