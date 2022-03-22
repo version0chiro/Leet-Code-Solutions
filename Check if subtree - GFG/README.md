@@ -37,6 +37,8 @@ of T.
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
 You don't need to read input or print anything. Your task is to complete the <strong>function isSubtree()&nbsp;</strong>that takes root&nbsp;node of S and T as parameters<strong> </strong>and <strong>returns 1</strong> if&nbsp;S is a subtree of T else <strong>0</strong>.</span></p>
 
+<p><span style="font-size:18px"><strong>Note:&nbsp;</strong>The nodes can&nbsp;have the duplicate values.</span></p>
+
 <p><br>
 <span style="font-size:18px"><strong>Expected Time Complexity:&nbsp;</strong>O(N).<br>
 <strong>Expected Auxiliary Space:&nbsp;</strong>O(N).</span></p>
