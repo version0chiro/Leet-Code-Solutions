@@ -1,5 +1,5 @@
 # Maximum Index
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array <strong>A[]</strong> of <strong>N</strong> positive integers. The task is to&nbsp;find the maximum of <strong>j - i</strong> subjected to the constraint of <strong>A[i] <u>&lt;</u>&nbsp;A[j] and i <u>&lt;</u>&nbsp;j</strong>.</span><br>
 &nbsp;</p>
