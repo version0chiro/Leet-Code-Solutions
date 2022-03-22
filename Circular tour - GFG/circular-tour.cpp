@@ -32,8 +32,9 @@ class Solution{
        int start = 0;
        
        for(int i=0;i<n;i++){
-           cap=cap+p[i].petrol-p[i].distance;
+           cap+=p[i].petrol-p[i].distance;
            
+        //   cout<<cap<<" ";
            if(cap<0){
                defi+=cap;
                cap=0;
@@ -42,8 +43,7 @@ class Solution{
        }
        
        
-        if(cap+defi>=0) return start;
-       
+       if(cap+defi>=0) return start;
        
        return -1;
     }
