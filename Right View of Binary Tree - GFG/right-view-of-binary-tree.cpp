@@ -40,40 +40,28 @@ struct Node
 class Solution
 {
     public:
+    
+    vector<int> ans;
+    
+    void solve(Node* root,int level){
+        if(!root ) return;
+        
+        if(ans.size()==level){
+            ans.push_back(root->data);
+            
+            
+        }
+        
+        solve(root->right,level+1);
+        solve(root->left,level+1);
+    }
     //Function to return list containing elements of right view of binary tree.
-    
-    
     vector<int> rightView(Node *root)
     {
+        solve(root,0);
+        
+        return ans;
        // Your Code here
-       queue<Node*> q;
-       q.push(root);
-       
-       vector<int> ans;
-       
-       while(q.size()){
-           int s = q.size();
-           int last;
-           for(int i=0;i<s;i++){
-               auto top = q.front();
-               q.pop();
-               last = top->data;
-               
-              
-               
-               if(top->left){
-                   q.push(top->left);
-               }
-               
-                if(top->right){
-                   q.push(top->right);
-               }
-           }
-           ans.push_back(last);
-           
-       }
-       
-       return ans;
     }
 };
 
