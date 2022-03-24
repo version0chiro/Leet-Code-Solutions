@@ -11,25 +11,25 @@ class Solution{
     public:
     long long trappingWater(int arr[], int n){
         // code here
-        int mxl[n],mxr[n];
-        long long total=0;
+        int lW=arr[0];
+        int rW= arr[n-1];
         
-        mxl[0]=arr[0],mxr[n-1]=arr[n-1];
+        int l = 0;
         
-        stack<int> st;
+        int r = n-1;
         
-        for(int i=1;i<n;i++){
-            mxl[i]=max(mxl[i-1],arr[i]);
+        long long  total=0;
         
-        }
-        
-        for(int i=n-2;i>=0;i--){
-            mxr[i]=max(mxr[i+1],arr[i]);
-        }
-        
-        for(int i=0;i<n;i++){
-            // cout<<mxl[i]<<" "<<mxr[i]<<" "<<arr[i]<<"\n";
-            total+=max(min(mxl[i],mxr[i])-arr[i],0);
+        while(l<=r){
+           if(arr[r]<arr[l]){
+               total+=max(rW-arr[r],0);
+               rW=max(rW,arr[r]);
+               r--;
+           }else{
+               total+=max(lW-arr[l],0);
+               lW=max(lW,arr[l]);
+               l++;
+           }
         }
         
         return total;
