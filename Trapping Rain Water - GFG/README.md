@@ -1,5 +1,5 @@
 # Trapping Rain Water
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array <strong>arr[]</strong>&nbsp;of <strong>N</strong> non-negative integers representing the height of blocks. If&nbsp;width of each block is 1, compute how much water can be trapped&nbsp;between the blocks during the rainy season.&nbsp;</span><br>
 &nbsp;</p>
