@@ -13,33 +13,24 @@ class Solution{
     int findPlatform(int arr[], int dep[], int n)
     {
     	// Your code here
-    	int i=1;
-    	int j=0;
-    	
     	sort(arr,arr+n);
     	sort(dep,dep+n);
     	
-    // 	for(int i=0;i<n;i++){
-    // 	    cout<<arr[i]<<" "<<dep[i]<<" \n";
-    // 	}
-    	
-    // 	cout<<endl;
+    	int p = 1;
+    	int i = 1;
     	
     	int ans = 1;
-    	int c = 1;
+    	int j = 0;
     	
     	while(i<n && j<n){
-    	    if(arr[i]<=dep[j]){
-    	        c++;
+    	    if(dep[j]>=arr[i]){
+    	        p++;
     	        i++;
     	    }else{
     	        j++;
-    	        c--;
+    	        p--;
     	    }
-    	    
-    	   // cout<<c<<" \n";
-    	    
-    	    ans = max(ans,c);
+    	    ans=max(ans,p);
     	}
     	
     	return ans;
