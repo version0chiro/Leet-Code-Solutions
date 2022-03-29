@@ -16,61 +16,57 @@ void printArray(int arr[], int size)
 
 
  // } Driver Code Ends
+
+
 class Solution
 {
+    
     public:
-    void merge(int arr[], int l, int m, int r)
+    void merge(int arr[], int l, int mid, int r)
     {
+        
          // Your code here
-         int temp[r+1];
+         int i=l;
+         int j=mid+1;
+         int k=l;
          
-         int start1 = l;
-         int start2 = m+1;
-         int end = r;
-         int i = l;
+         int temp[r];
          
-         while(start1<=m && start2<=end){
-             if(arr[start1]<arr[start2]){
-                 temp[i]=arr[start1];
+         while(i<=mid && j<=r){
+             if(arr[i]<arr[j]){
+                 temp[k]=arr[i];
                  i++;
-                 start1++;
+                 k++;
              }else{
-                 temp[i]=arr[start2];
-                 i++;
-                 start2++;
+                 temp[k]=arr[j];
+                 j++;
+                 k++;
              }
          }
          
-         while(start1<=m){
-             temp[i]=arr[start1];
-             start1++;
-             i++;
+         while(i<=mid){
+             temp[k++]=arr[i++];
          }
          
-         while(start2<=r){
-             temp[i]=arr[start2];
-             start2++;
-             i++;
+         while(j<=r){
+             temp[k++]=arr[j++];
          }
          
-         for(int i=l;i<=r;i++){
-             arr[i]=temp[i];
+         for(int p=l;p<=r;p++){
+             arr[p]=temp[p];
          }
+         
          
     }
     public:
     void mergeSort(int arr[], int l, int r)
     {
         //code here
-        
         if(l<r){
-            
-            
-            int mid = l+(r-l)/2;
-            
-            // cout<<arr[l]<<" "<<arr[r]<<" "<<arr[mid]<<" \n";
+            int mid = (l+r)/2;
             
             mergeSort(arr,l,mid);
+            
             mergeSort(arr,mid+1,r);
             
             merge(arr,l,mid,r);
