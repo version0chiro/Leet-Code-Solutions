@@ -1,5 +1,5 @@
 # Remove loop in Linked List
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a linked list of <strong>N</strong> nodes such that it may contain a loop. </span></p>
 
