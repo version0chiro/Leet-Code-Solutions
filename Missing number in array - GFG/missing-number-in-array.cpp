@@ -14,15 +14,18 @@ class Solution{
   public:
     int MissingNumber(vector<int>& array, int n) {
         // Your code goes here
-        int actualSum = (n*(n+1))/2;
+        // s = n/2 * (2a+(n-1)*d)
+        int totalSum = (n)*(1+n)/2;
         
         int realSum = 0;
         
-        for(auto a:array) realSum+=a;
+        for(auto a:array){
+            realSum+=a;
+        }
         
-        // cout<<realSum<<" "<<actualSum<<" \n";
+        // cout<<totalSum<<" ";
         
-        return actualSum-realSum;
+        return totalSum-realSum;
     }
 };
 
