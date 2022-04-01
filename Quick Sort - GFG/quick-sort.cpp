@@ -21,13 +21,10 @@ class Solution
     {
         // code here
         if(low<high){
-            
             int id = partition(arr,low,high);
             
             quickSort(arr,low,id-1);
-            
             quickSort(arr,id+1,high);
-            
         }
     }
     
@@ -35,18 +32,18 @@ class Solution
     int partition (int arr[], int low, int high)
     {
        // Your code here
-       int p = arr[high];
        
        int j = low-1;
+       int p = arr[high];
        
-       for(int i=low;i<high;i++){
+       for(int i=low;i<=high;i++){
            if(p>arr[i]){
                j++;
-               swap(arr[j],arr[i]);
+               swap(arr[i],arr[j]);
            }
        }
        
-       swap(arr[high],arr[j+1]);
+       swap(arr[j+1],arr[high]);
        
        return j+1;
     }
