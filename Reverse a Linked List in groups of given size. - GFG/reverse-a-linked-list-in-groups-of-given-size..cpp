@@ -54,21 +54,21 @@ class Solution
         // Complete this method
         if(!head) return NULL;
         
-        struct node *curr = head;
+        struct node* prev = NULL;
+        struct node* temp = NULL;
+        struct node* curr = head;
         
-        struct node *prev = NULL;
+        int c = k;
         
-        int count=0;
-        
-        while(count<k && curr){
-            auto temp = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr=temp;
-            count++;
+        while(head && c){
+            temp=head->next;
+            head->next=prev;
+            prev=head;
+            head=temp;
+            c--;
         }
         
-        head->next = reverse(curr,k);
+        curr->next = reverse(head,k);
         
         return prev;
     }
