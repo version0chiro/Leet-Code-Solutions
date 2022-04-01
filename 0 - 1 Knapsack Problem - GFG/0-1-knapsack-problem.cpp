@@ -28,8 +28,30 @@ class Solution
     int knapSack(int W, int wt[], int val[], int n) 
     { 
        // Your code here
-       memset(t,-1,sizeof(t));
-       return solve(W,wt,val,n);
+    //   memset(t,-1,sizeof(t));
+    //   return solve(W,wt,val,n);
+    
+        int t[W+1][n+1];
+        
+        for(int i=0;i<=n;i++){
+            t[0][i]=0;
+        }
+        
+        for(int i=0;i<=W;i++){
+            t[i][0]=0;
+        }
+        
+        for(int i=1;i<=W;i++){
+            for(int j=1;j<=n;j++){
+                if(i>=wt[j-1]){
+                    t[i][j]=max(t[i-wt[j-1]][j-1]+val[j-1],t[i][j-1]);
+                }else{
+                    t[i][j]=t[i][j-1];
+                }
+            }
+        }
+        
+        return t[W][n];
        
     }
 };
