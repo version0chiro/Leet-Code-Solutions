@@ -19,16 +19,17 @@ class Solution{
         
         for(int i=N-2;i>=0;i--){
             maxA[i]=max(maxA[i+1],A[i]);
+            
         }
         
-        
-        int i=0,j=0;
+        int i=0;
+        int j =0;
         
         int ans = INT_MIN;
         
         while(i<N && j<N){
             if(A[i]<=maxA[j]){
-                ans = max(j-i,ans);
+                ans=max(ans,j-i);
                 j++;
             }else{
                 i++;
