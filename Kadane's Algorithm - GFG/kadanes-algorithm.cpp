@@ -13,12 +13,11 @@ class Solution{
         
         // Your code here
         long long ans = arr[0];
-        long long sum = arr[0];
+        long long curr = arr[0];
         
         for(int i=1;i<n;i++){
-            sum=max((long long)arr[i],sum+arr[i]);
-            
-            ans=max(ans,sum);
+            curr=max(curr+arr[i],(long long)arr[i]);
+            ans=max(ans,curr);
         }
         
         return ans;
