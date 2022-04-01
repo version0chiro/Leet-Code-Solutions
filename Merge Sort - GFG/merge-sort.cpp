@@ -20,31 +20,28 @@ void printArray(int arr[], int size)
 
 class Solution
 {
-    
     public:
-    void merge(int arr[], int l, int mid, int r)
+    void merge(int arr[], int l, int m, int r)
     {
-        
          // Your code here
-         int i=l;
-         int j=mid+1;
-         int k=l;
          
          int temp[r];
          
-         while(i<=mid && j<=r){
+         int i,j,k;
+         
+         i=l;
+         j=m+1;
+         k=l;
+         
+         while(i<=m && j<=r){
              if(arr[i]<arr[j]){
-                 temp[k]=arr[i];
-                 i++;
-                 k++;
+                 temp[k++]=arr[i++];
              }else{
-                 temp[k]=arr[j];
-                 j++;
-                 k++;
+                 temp[k++]=arr[j++];
              }
          }
          
-         while(i<=mid){
+         while(i<=m){
              temp[k++]=arr[i++];
          }
          
@@ -55,8 +52,6 @@ class Solution
          for(int p=l;p<=r;p++){
              arr[p]=temp[p];
          }
-         
-         
     }
     public:
     void mergeSort(int arr[], int l, int r)
@@ -66,7 +61,6 @@ class Solution
             int mid = (l+r)/2;
             
             mergeSort(arr,l,mid);
-            
             mergeSort(arr,mid+1,r);
             
             merge(arr,l,mid,r);
