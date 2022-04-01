@@ -1,5 +1,5 @@
 # Merge Sort
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array arr[], its starting position l and its ending position r. Sort the array using merge sort algorithm.</span><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
