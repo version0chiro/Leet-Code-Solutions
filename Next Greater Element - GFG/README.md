@@ -34,7 +34,7 @@ element on right and hence -1.</span></pre>
 This is a <strong>function </strong>problem. You only need to complete the function <strong>nextLargerElement()&nbsp;</strong>that takes list of integers&nbsp;<strong>arr[ ] </strong>and<strong>&nbsp;N</strong>&nbsp;as input parameters<strong> </strong>and returns list of integers&nbsp;of length N&nbsp;denoting the next greater elements for all the corresponding elements in the input array.</span></p>
 
 <p><span style="font-size:18px"><strong>Expected Time Complexity</strong> : O(N)<br>
-<strong>Expected Auxilliary Space</strong> : O(N)</span></p>
+<strong>Expected Auxiliary Space</strong> : O(N)</span></p>
 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ N ≤&nbsp;10<sup>6</sup><br>
