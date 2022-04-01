@@ -1,5 +1,5 @@
 # Majority Element
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array <strong>A</strong> of <strong>N</strong> elements. Find the majority element in the array.&nbsp;A majority element in an array A of size N is an <strong>element that appears more than N/2 times in the array</strong>.</span><br>
 &nbsp;</p>
