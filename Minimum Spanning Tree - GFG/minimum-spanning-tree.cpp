@@ -16,36 +16,35 @@ class Solution
         int dist[V+1];
         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
         
-        for(int i=0;i<V+1;i++){
-            minST[i]=false;
+        for(int i=0;i<=V;i++){
             dist[i]=INT_MAX;
+            minST[i]=false;
         }
         
-        pq.push({0,0});
         dist[0]=0;
         
+        pq.push({0,0});
+        
         while(pq.size()){
-            int u = pq.top().second;
+            auto top = pq.top();
             pq.pop();
-            minST[u]=true;
+            minST[top.second]=true;
             
-            for(auto it:adj[u]){
-                int v = it[0];
-                int w= it[1];
-                
-                if(minST[v]==false && w<dist[v]){
+            for(auto a:adj[top.second]){
+                int v = a[0];
+                int w = a[1];
+                if(minST[v]==false && dist[v]>w){
                     dist[v]=w;
                     pq.push({w,v});
                 }
             }
         }
-        int sum = 0;
+        int ans = 0;
         for(int i=0;i<V;i++){
-            // cout<<dist[i]<<" ";
-            sum+=dist[i];
+            ans+=dist[i];
         }
-        // cout<<endl;
-        return sum;
+        
+        return ans;
     }
 };
 
