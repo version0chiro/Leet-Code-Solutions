@@ -25,7 +25,7 @@ class Solution
         
         pq.push({0,0});
         
-        while(pq.size()){
+        while(pq.size()){ 
             auto top = pq.top();
             pq.pop();
             minST[top.second]=true;
