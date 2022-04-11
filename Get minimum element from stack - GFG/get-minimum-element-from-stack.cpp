@@ -19,15 +19,17 @@ public :
 class Solution{
     int minEle;
     stack<int> s;
-    stack<int> minS;
     public:
     
        /*returns min element from stack*/
        int getMin(){
-           if(minS.size()==0) return -1;
            
-           return minS.top();
            //Write your code here
+           if(s.size()==0)
+                return -1;
+            
+            return minEle;
+                
        }
        
        /*returns poped element from stack*/
@@ -35,25 +37,36 @@ class Solution{
            
            if(s.size()==0) return -1;
            
-           if(minS.size() && s.top()==minS.top()) {
-               minS.pop();
-           }
-           int ans = s.top();
+           int top = s.top();
            s.pop();
            
-           return ans;
+           if(top<minEle){
+               int ans = minEle;
+               minEle = 2*minEle - top;
+               return ans;
+           }
+           
+           return top;
            //Write your code here
        }
        
        /*push element x into the stack*/
        void push(int x){
-           s.push(x);
-           if(minS.size()==0){
-               minS.push(x);
+           
+           if(s.size()==0) {
+               minEle = x;
+               s.push(x);
+               return;
            }
            
-           else if(minS.top()>=x){
-               minS.push(x);
+           
+           else if(x<minEle){
+               s.push(2*x-minEle);
+               minEle = x;
+               return;
+           }else{
+               s.push(x);
+               return;
            }
            //Write your code here
        }
