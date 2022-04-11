@@ -36,17 +36,19 @@ class Solution{
        int pop(){
            
            if(s.size()==0) return -1;
-           
-           int top = s.top();
+           int ans = s.top();
            s.pop();
            
-           if(top<minEle){
-               int ans = minEle;
-               minEle = 2*minEle - top;
-               return ans;
+           if(ans<minEle){
+               int r = minEle;
+               minEle =  2*minEle - ans;
+            //   s.pop();
+               
+               return r;
            }
            
-           return top;
+           return ans;
+           
            //Write your code here
        }
        
