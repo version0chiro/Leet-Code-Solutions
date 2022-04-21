@@ -17,7 +17,6 @@ void printArray(int arr[], int size)
 
  // } Driver Code Ends
 
-
 class Solution
 {
     public:
@@ -25,11 +24,10 @@ class Solution
     {
          // Your code here
          int temp[r+1];
-         int i=l;
-         int j=m+1;
-         int k = l;
          
-         while(i<m+1 && j<=r){
+         int i=l,j=m+1,k=l;
+         
+         while(i<=m && j<=r){
              if(arr[i]<arr[j]){
                  temp[k++]=arr[i++];
              }else{
@@ -37,19 +35,18 @@ class Solution
              }
          }
          
-           
+         
          while(i<=m){
              temp[k++]=arr[i++];
          }
          
          while(j<=r){
-             temp[k++]=arr[j++];
+             temp[k++] = arr[j++];
          }
          
          for(int i=l;i<=r;i++){
              arr[i]=temp[i];
          }
-         
          
     }
     public:
@@ -60,6 +57,7 @@ class Solution
             int mid = (l+r)/2;
             
             mergeSort(arr,l,mid);
+            
             mergeSort(arr,mid+1,r);
             
             merge(arr,l,mid,r);
