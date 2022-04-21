@@ -11,26 +11,26 @@ class Solution{
     public:
     long long trappingWater(int arr[], int n){
         // code here
-        int lW=arr[0];
+        int lW = arr[0];
+        int rW = arr[n-1];
         int l = 0;
         int r = n-1;
-        int rW = arr[n-1];
-        long long total=0;
         
-        while(l<r){
+        long long  ans = 0;
+        
+        while(l<=r){
             if(arr[r]<arr[l]){
-                total+=max(0,rW-arr[r]);
+                ans+=max(0,rW-arr[r]);
                 rW=max(rW,arr[r]);
                 r--;
             }else{
-                total+=max(0,lW-arr[l]);
-                lW=max(lW,arr[l]);
+                ans+=max(0,lW-arr[l]);
+                lW = max(lW,arr[l]);
                 l++;
-                
             }
         }
         
-        return total;
+        return ans;
     }
 };
 
