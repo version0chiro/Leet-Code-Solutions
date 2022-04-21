@@ -32,20 +32,22 @@ class Solution
     int partition (int arr[], int low, int high)
     {
        // Your code here
-       
-       int j = low-1;
        int p = arr[high];
+       int j = low-1;
+       
        
        for(int i=low;i<=high;i++){
            if(p>arr[i]){
                j++;
-               swap(arr[i],arr[j]);
+               swap(arr[j],arr[i]);
            }
        }
        
        swap(arr[j+1],arr[high]);
        
        return j+1;
+       
+       
     }
 };
 
