@@ -35,22 +35,24 @@ class Solution
     {
         // Your code here
         Node* tail = head;
-        while(tail->next) tail = tail->next;
         
-        tail->next =head;
+        while(tail->next){
+            tail=tail->next;
+        }
         
-        Node* curr = head;
+        tail->next=head;
         
         Node* prev = tail;
+        tail=head;
         
-        for(int i=0;i<k;i++){
-            prev = curr;
-            curr=curr->next;
-            
-        } 
+        while(k--){
+            prev=tail;
+            tail=tail->next;
         
-        prev->next = NULL;
-        return curr;
+        }
+        
+        prev->next=NULL;
+        return tail;
     }
 };
     
