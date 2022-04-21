@@ -11,21 +11,23 @@ public:
         int *ans = new int[2];
         
         for(int i=0;i<n;i++){
-            if(arr[abs(arr[i])-1]>0 )
-            arr[abs(arr[i])-1] = - arr[abs(arr[i])-1];
+            int id = abs(arr[i]);
+            
+            if(arr[id-1]>0) arr[id-1]=-abs(arr[id-1]);
             else{
                 ans[0]=abs(arr[i]);
-                // break;
-                
             }
             
         }
+        
         
         for(int i=0;i<n;i++){
             if(arr[i]>0){
                 ans[1]=i+1;
                 break;
+                
             }
+                
         }
         
         return ans;
