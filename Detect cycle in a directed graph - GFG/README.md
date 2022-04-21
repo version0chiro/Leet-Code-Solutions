@@ -24,7 +24,7 @@
 
 <p><br>
 <span style="font-size:18px"><strong>Your task:</strong></span><br>
-<span style="font-size:18px">You don’t need to read input or print anything. Your task is to complete the function&nbsp;<strong>isCyclic()</strong>&nbsp;which takes the integer V denoting the number of vertices and adjacency list as input parameters and returns a boolean value denoting if the given directed graph contains a cycle or not. </span></p>
+<span style="font-size:18px">You dont need to read input or print anything. Your task is to complete the function&nbsp;<strong>isCyclic()</strong>&nbsp;which takes the integer V denoting the number of vertices and adjacency list as input parameters and returns a boolean value denoting if the given directed graph contains a cycle or not. </span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Expected Time Complexity:&nbsp;</strong>O(V + E)<br>
