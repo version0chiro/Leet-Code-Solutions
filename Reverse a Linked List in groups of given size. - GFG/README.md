@@ -1,5 +1,5 @@
 # Reverse a Linked List in groups of given size.
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a linked list of size <strong>N</strong>. The task is to reverse every <strong>k</strong> nodes (where k is an input to the function) in the linked list. If the number of nodes is not a multiple of&nbsp;<em>k</em>&nbsp;then left-out nodes, in the end, should be considered as a group and must be&nbsp;reversed (See Example 2 for clarification).</span></p>
 
