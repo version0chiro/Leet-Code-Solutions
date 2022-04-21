@@ -95,55 +95,47 @@ struct Node
 class Solution
 {
     public:
-    // bool ans = true;
-    
     bool isLeaf(Node* root){
         if(!root) return false;
         
         if(!root->left && !root->right) return true;
         
         return false;
-    }
-    
-    int solve(Node* root){
         
-        // if(!ans) return 0;
-        
-        
-        if(!root) return true;
-        
-        if(!root->left && !root->right) return true;
-        
-        int l;
-        
-        int r;
-        
-        if(solve(root->left) && solve(root->right)){
-            if(root->left==NULL){
-                l=0;
-            } else if(isLeaf(root->left)){
-                l=root->left->data;
-            }else{
-                l=2*(root->left->data);
-            }
-            
-            if(root->right==NULL){
-                r=0;
-            } else if(isLeaf(root->right)){
-                r=root->right->data;
-            }else{
-                r=2*(root->right->data);
-            }
-        }
-        
-        
-        return root->data==l+r;
     }
     bool isSumTree(Node* root)
     {
-        return solve(root);
+        if(!root) return true;
         
-        // return ans;
+        
+        if(isLeaf(root)) return true;
+        
+        if(isSumTree(root->left) && isSumTree(root->right)){
+            int l,r;
+            if(!root->left){
+                l=0;
+            }
+            else if(isLeaf(root->left)){
+                l = root->left->data;
+            }else{
+                l=2*root->left->data;
+            }
+            
+            if(!root->right)
+                r=0;
+            else if(isLeaf(root->right)){
+                r=root->right->data;
+                
+            }else{
+                r=2*root->right->data;
+            }
+            
+            if(root->data!=l+r) return false;
+            
+            return true;
+        }
+        
+        return false;
          // Your code here
     }
 };
