@@ -11,20 +11,22 @@ class Solution{
     // n: size of array
     int equilibriumPoint(long long a[], int n) {
     
-     int s1 = 0;
-     for(int i=0;i<n;i++){
-         s1+=a[i];
-     }
-     
-     int s2=0;
-     
-     for(int i=n-1;i>=0;i--){
-         s2+=a[i];
-         if(s1==s2) return i+1;
-         s1-=a[i];
-     }
-     
-     return -1;
+        // Your code here
+        long long s1 = 0;
+        for(int i=0;i<n;i++){
+            s1+=a[i];
+        }
+        
+        long long s2 = 0;
+        
+        for(int i=n-1;i>=0;i--){
+            s2+=a[i];
+            if(s2==s1) return i+1;
+            s1-=a[i];
+            
+        }
+        
+        return -1;
     }
 
 };
