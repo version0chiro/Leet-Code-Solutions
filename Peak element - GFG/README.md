@@ -1,5 +1,5 @@
 # Peak element
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">An element is called a peak element if its value&nbsp;is not smaller than the value of&nbsp;its adjacent elements(if they exists).<br>
 Given an array <strong>arr[]</strong> of size&nbsp;<strong>N</strong>,&nbsp;find the index of any one of its&nbsp;peak elements.<br>
