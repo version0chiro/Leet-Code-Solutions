@@ -13,22 +13,21 @@ public:
         for(int i=0;i<n;i++){
             int id = abs(arr[i]);
             
-            if(arr[id-1]>0) arr[id-1]=-abs(arr[id-1]);
-            else{
+            if(arr[id-1]>0){
+                arr[id-1]=-abs(arr[id-1]);
+            }else{
                 ans[0]=abs(arr[i]);
+                // break;
             }
-            
         }
-        
         
         for(int i=0;i<n;i++){
             if(arr[i]>0){
                 ans[1]=i+1;
                 break;
-                
             }
-                
         }
+        
         
         return ans;
     }
