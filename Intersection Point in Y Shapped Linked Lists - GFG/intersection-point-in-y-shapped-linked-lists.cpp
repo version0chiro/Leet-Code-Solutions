@@ -88,26 +88,33 @@ int intersectPoint(Node* head1, Node* head2)
     Node* curr2 = head2;
     
     bool done1 = false;
-    
     bool done2 = false;
     
-    while(curr1!=curr2){
+    while(curr1 && curr2){
+        if(curr1==curr2) return curr1->data;
+        
         curr1=curr1->next;
+        if(!curr1){
+            if(!done1){
+                curr1=head2;
+                done1=true;
+            }else{
+                return -1;
+            }
+        }
         curr2=curr2->next;
-        
-        if(curr1==NULL){
-            if(done1) return -1;
-            curr1=head2;
-            done1 = true;
+        if(!curr2){
+            if(!done2){
+                curr2=head1;
+                done2=true;
+            }else{
+                return -1;
+            }
         }
         
-        if(curr2==NULL){
-            if(done2) return -1;
-            curr2=head1;
-            done2=true;
-        }
+        
     }
     
-    return curr1->data;
+    return -1;
 }
 
