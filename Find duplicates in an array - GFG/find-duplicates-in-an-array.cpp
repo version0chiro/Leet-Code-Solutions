@@ -14,10 +14,13 @@ class Solution{
         vector<int> ans;
         
         for(int i=0;i<n;i++){
-            if(arr[i]>=2*n) ans.push_back(i);
+            if(arr[i]>=2*n){
+                ans.push_back(i);
+            }
         }
         
         if(ans.size()==0) return {-1};
+        
         
         return ans;
     }
