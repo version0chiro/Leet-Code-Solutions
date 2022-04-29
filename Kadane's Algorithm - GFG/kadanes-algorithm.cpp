@@ -13,15 +13,17 @@ class Solution{
         
         // Your code here
         long long ans = arr[0];
-        long long curr = arr[0];
-        
+        long long sum = arr[0];
         for(int i=1;i<n;i++){
-            curr=max(curr+arr[i],(long long)arr[i]);
-            ans=max(ans,curr);
+            sum=max(sum+arr[i],(long long)arr[i]);
+            // if(sum<0){
+            //     sum=arr[i];
+            // }
+            
+            ans=max(ans,sum);
         }
         
         return ans;
-        
     }
 };
 
