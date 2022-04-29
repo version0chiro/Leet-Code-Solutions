@@ -81,14 +81,15 @@ class Solution
     {
         // code here
         // just remove the loop without losing any nodes
+        
         if(!head || !head->next) return;
         
-        Node* fast = head->next->next;
-        
-        Node* slow = head->next;
+        auto fast = head->next->next;
+        auto slow = head->next;
         
         while(fast && fast->next){
             if(fast==slow) break;
+            
             fast=fast->next->next;
             slow=slow->next;
         }
@@ -101,16 +102,16 @@ class Solution
             while(fast->next!=slow){
                 fast=fast->next;
             }
-            fast->next=NULL;
-            return;
         }else{
-            while(fast->next!=slow->next){
+            while(slow->next!=fast->next){
                 slow=slow->next;
                 fast=fast->next;
             }
-            fast->next=NULL;
-            return;
         }
+        
+        fast->next=NULL;
+        
+        return;
         
     }
 };
