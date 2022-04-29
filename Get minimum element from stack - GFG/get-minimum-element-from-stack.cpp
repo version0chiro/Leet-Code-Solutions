@@ -53,7 +53,7 @@ class Solution{
        
        /*push element x into the stack*/
        void push(int x){
-           if(s.size()==0) {
+            if(s.size()==0) {
                s.push(x);
                minEle=x;
                return;
@@ -66,6 +66,7 @@ class Solution{
            }
            
            s.push(x);
+           //Write your code here
        }
 };
 
