@@ -1,5 +1,5 @@
 # Get minimum element from stack
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">You are given <strong>N</strong>&nbsp;elements&nbsp;and your task is to Implement a Stack in which you can get minimum element in O(1) time.</span></p>
 
@@ -15,13 +15,19 @@ getMin()<strong>
 Output: </strong>3 2 1<strong>
 Explanation: </strong>In the first test case for
 query&nbsp;
-push(2)&nbsp; the stack&nbsp;will be {2}
-push(3)&nbsp; the stack&nbsp;will be {2 3}
-pop()    poped element will be 3&nbsp;the
+push(2)&nbsp; Insert 2 into the stack.
+&nbsp;        The stack&nbsp;will be {2}
+push(3)&nbsp; Insert 3 into the stack.
+&nbsp;        The stack&nbsp;will be {2 3}
+pop()    Remove top element from stack 
+&nbsp;        Poped element will be 3&nbsp;the
 &nbsp;        stack will be {2}
-getMin() min element will be 2&nbsp;
-push(1)  the stack&nbsp;will be {2 1}
-getMin() min element will be 1</span>
+getMin() Return the minimum element
+&nbsp;        min element will be 2&nbsp;
+push(1)  Insert 1 into the stack.
+         The stack&nbsp;will be {2 1}
+getMin() Return the minimum element
+&nbsp;        min element will be 1</span>
 </pre>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
