@@ -1,5 +1,5 @@
 # Count Inversions
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array of integers. Find the Inversion Count in the array.&nbsp;</span></p>
 
