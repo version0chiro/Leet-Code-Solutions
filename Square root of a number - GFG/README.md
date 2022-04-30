@@ -1,5 +1,5 @@
 # Square root of a number
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an integer <strong>x,</strong>&nbsp;find the square root of x. If <strong>x</strong> is not a perfect square, then return floor(√x).</span></p>
 
