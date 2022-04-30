@@ -1,5 +1,5 @@
 # Circular tour
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Suppose there is a circle. There are <strong>N</strong> petrol pumps on that circle. You will be&nbsp;given two sets of data.<br>
 <strong>1.</strong>&nbsp;The amount of petrol that every petrol pump has.<br>
