@@ -12,26 +12,17 @@ public:
 	long long maxProduct(vector<int> arr, int n) {
 	    // code here
 	    long long ans = INT_MIN;
-	    long long l = 1;
-	    long long r = 1;
+	    long long leftP = 1;
+	    long long rightP = 1;
+	    
 	    for(int i=0;i<n;i++){
-	            
-	       l=l*arr[i];
-	       
-	       r=r*arr[n-i-1];
-	       //cout<<l<<" "<<r<<" \n";
+	        leftP=leftP*arr[i];
+	        if(leftP==0) leftP=1;
 	        
-	       if(l==0){
-	           l=1;
-	       }
-	       if(r==0){
-	           r=1;
-	       }
-	       
-   	    //   cout<<l<<" "<<r<<" \n";
-
-	        ans=max(max(l,r),ans);
+	        rightP = rightP*arr[n-i-1];
+	        if(rightP==0)rightP=1;
 	        
+	        ans=max(max(leftP,rightP),ans);
 	    }
 	    
 	    return ans;
