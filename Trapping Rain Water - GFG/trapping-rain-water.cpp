@@ -13,24 +13,27 @@ class Solution{
         // code here
         int lW = arr[0];
         int rW = arr[n-1];
-        int l = 0;
-        int r = n-1;
         
-        long long  ans = 0;
+        int lP = 0;
+        int rP = n-1;
         
-        while(l<=r){
-            if(arr[r]<arr[l]){
-                ans+=max(0,rW-arr[r]);
-                rW=max(rW,arr[r]);
-                r--;
+        long long total = 0;
+        
+        while(lP<rP){
+            // cout<<rP<<" "<<lP<<"\n";
+            if(arr[rP]<arr[lP]){
+                total+=max(0,rW-arr[rP]);
+                rW=max(rW,arr[rP]);
+                rP--;
             }else{
-                ans+=max(0,lW-arr[l]);
-                lW = max(lW,arr[l]);
-                l++;
+                total+=max(0,lW-arr[lP]);
+                lW=max(lW,arr[lP]);
+                lP++;
             }
         }
         
-        return ans;
+        return total;
+        
     }
 };
 
