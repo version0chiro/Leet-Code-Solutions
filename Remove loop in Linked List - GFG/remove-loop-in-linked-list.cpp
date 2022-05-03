@@ -84,8 +84,8 @@ class Solution
         
         if(!head || !head->next) return;
         
-        auto fast = head->next->next;
-        auto slow = head->next;
+        Node*  fast = head->next->next;
+        Node* slow = head->next;
         
         while(fast && fast->next){
             if(fast==slow) break;
@@ -96,23 +96,21 @@ class Solution
         
         if(!fast || !fast->next) return;
         
-        slow=head;
+        slow = head;
         
-        if(fast==slow){
+        if(slow==fast){
             while(fast->next!=slow){
                 fast=fast->next;
             }
         }else{
-            while(slow->next!=fast->next){
+            while(fast->next!=slow->next){
                 slow=slow->next;
                 fast=fast->next;
             }
         }
         
         fast->next=NULL;
-        
         return;
-        
     }
 };
 
