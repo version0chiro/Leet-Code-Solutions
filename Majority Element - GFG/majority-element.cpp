@@ -17,30 +17,33 @@ class Solution{
     {
         
         // your code here
-        int c = 1;
-        int curr = a[0];
+        int c =1;
+        int lastInt = a[0];
         
         for(int i=1;i<size;i++){
-            if(curr==a[i]){
-                c++;
-            }else{
+            if(lastInt==a[i])c++;
+            
+            else{
                 c--;
+                
                 if(c==0){
-                    curr=a[i];
+                    lastInt=a[i];
                     c=1;
                 }
             }
         }
+        
+        
         c=0;
+        
         for(int i=0;i<size;i++){
-            if(a[i]==curr){
-                c++;
-            }
+            if(lastInt==a[i]) c++;
         }
         
-        if(c>size/2) return curr;
+        if(c>size/2) return lastInt;
         
         return -1;
+        
     }
 };
 
