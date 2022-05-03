@@ -10,34 +10,37 @@ class Solution{
   public:
     int minJumps(int arr[], int n){
         // Your code here
+        
         if(n==1) return 0;
         
         if(arr[0]==0) return -1;
         
         int jumps = 1;
-        int maxReach = arr[0];
-        int currReach = arr[0];
+        int maxReach=arr[0];
+        int steps = arr[0];
         
-        int i = 1;
         
-        while(i<n){
+        
+        
+        for(int i=1;i<n;i++){
             if(i==n-1) return jumps;
+            
+            steps--;
             
             maxReach=max(maxReach,arr[i]+i);
             
-            currReach--;
-            
-            if(currReach<=0){
+            if(steps<=0){
+                
                 if(maxReach<=i) return -1;
                 
                 jumps++;
-                
-                currReach = maxReach - i;
+                steps=maxReach-i;
             }
-            i++;
+            
+            
         }
         
-        return -1;
+        
     }
 };
 
