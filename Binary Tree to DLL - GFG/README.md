@@ -40,6 +40,6 @@ Explanation: </strong> DLL would be
 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ Number of nodes ≤ 10<sup>5</sup><br>
-1 ≤ Data of a node ≤ 10<sup>5</sup></span></p>
+0 ≤ Data of a node ≤ 10<sup>5</sup></span></p>
  <p></p>
             </div>
