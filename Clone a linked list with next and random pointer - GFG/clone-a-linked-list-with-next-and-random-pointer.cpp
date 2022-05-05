@@ -24,38 +24,51 @@ class Solution
     Node *copyList(Node *head)
     {
         //Write your code here
-        Node *newHead = new Node(head->data);
-        
-        unordered_map<Node*,Node*> m;
-        unordered_map<Node*,Node*> m2;
-        
         Node* curr = head;
-        Node* newCurr = newHead;
-        
-        int pos = 0;
         
         while(curr){
-            m2[curr]=curr->arb;
-            newCurr->next = curr->next?new Node(curr->next->data):NULL;
-            m[curr]=newCurr;
-            newCurr=newCurr->next;
-            curr=curr->next;
+            auto temp = curr->next;
+            curr->next = new Node(curr->data);
+            curr->next->next = temp;
+            // cout<<curr->next->data<<" "<<curr->data<<" ";
+            curr=temp;
         }
+        
+        // curr = head;
+        
+        // while(curr){
+        //     cout<<curr->data<<" ";
+        //     curr=curr->next;
+        // }
+        
+        // return head;
         
         curr=head;
-        newCurr=newHead;
+      ;
         
         while(curr){
-            if(curr->arb){
-                m[curr]->arb = m[curr->arb];
-                // cout<<curr->data<<" "<<m[curr->arb->data]->data<<"\n";
+            if(curr->next!=NULL){
+                curr->next->arb = curr->arb!=NULL?curr->arb->next:NULL;
             }
-                
-            //     m[curr->data]->arb = m[m2[curr->arb->data]->data];
-            curr=curr->next;
+            
+            curr=curr->next->next;
         }
         
-        return newHead;
+       
+       Node* ori = head;
+       Node* copy = head->next;
+       Node* temp = copy;
+       while(ori!=NULL){
+           ori->next=ori->next->next;
+           copy->next = (copy->next!=NULL)?copy->next->next:copy->next;
+           ori=ori->next;
+           copy=copy->next;
+       }
+        
+        
+        return temp;
+        
+        
     }
 
 };
