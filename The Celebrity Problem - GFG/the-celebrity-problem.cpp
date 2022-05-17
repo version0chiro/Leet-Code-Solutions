@@ -20,31 +20,33 @@ class Solution
             st.push(i);
         }
         
-        while(st.size()>1){
-            auto f = st.top();
+        while(st.size()!=1){
+            auto first = st.top();
             st.pop();
-            auto s = st.top();
+            auto second = st.top();
             st.pop();
-            
-            if(M[f][s] ) st.push(s);
-            
-            else  st.push(f);
-            
-            // else if(!M[f][s] && !M[s][f]) st.push(f),st.push(s);
-            
-            
-        } 
-        
-        if(st.size()==0) return -1;
-        
-        int poC = st.top(); 
-        st.pop();
-        
-        for(int i=0;i<n;i++){
-            if((i!=poC) && (M[poC][i] || !M[i][poC])) return -1;
+            if(M[first][second]){
+                st.push(second);
+            }else{
+                st.push(first);
+            }
         }
         
-        return poC;
+        auto potentialCeleb = st.top();
+        int c = 0;
+        
+        for(int i=0;i<n;i++){
+            if(i!=potentialCeleb){
+                if(M[i][potentialCeleb]) c++;
+                if(M[potentialCeleb][i]) return -1;
+                
+            }
+        }
+        
+        if(c==n-1)
+            return potentialCeleb;
+            
+        return -1;
     }
 };
 
