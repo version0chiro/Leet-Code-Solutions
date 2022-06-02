@@ -24,22 +24,21 @@ class Solution
     public:
     //Function to check whether a Binary Tree is BST or not.
     
-    bool check(Node* root,int maxS,int minS){
+    bool check(Node* root,int lN,int hN){
         if(!root) return true;
         
-        if(root->data>maxS || root->data<minS) return false;
+        if(root->data<lN || root->data>hN) return false;
         
-        auto l = check(root->left,root->data,minS);
-        
-        auto r = check(root->right,maxS,root->data);
-        
-        return l&&r;
+        return check(root->left,lN,root->data) && check(root->right,root->data,hN);
     }
     
     bool isBST(Node* root) 
     {
         // Your code here
-        return check(root,INT_MAX,INT_MIN);
+        
+        if(!root) return true;
+        
+        return check(root,INT_MIN,INT_MAX);
     }
 };
 
