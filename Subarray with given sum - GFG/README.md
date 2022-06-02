@@ -33,7 +33,7 @@ is 15.</span>
 <p>&nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
-You don't need to read input or print anything. The task is to complete the function <strong>subarraySum</strong>() which takes arr, N and S as input parameters and returns a list containing the&nbsp;starting and ending positions&nbsp;of the&nbsp;first such occurring subarray from the left where sum equals to S. The two indexes in the list should be according to 1-based indexing. If no such subarray is found, return an array consisting only one element that is -1.</span></p>
+You don't need to read input or print anything. The task is to complete the function <strong>subarraySum</strong>() which takes arr, N and S as input parameters and returns an <strong>arraylist&nbsp;</strong>containing the&nbsp;<strong>starting </strong>and <strong>ending </strong>positions&nbsp;of the&nbsp;first such occurring subarray from the left where sum equals to S. The two indexes in the array should be according to 1-based indexing. If no such subarray is found, return an array consisting only one element that is -1.</span></p>
 
 <p>&nbsp;</p>
 
