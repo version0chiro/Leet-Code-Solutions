@@ -14,16 +14,14 @@ class Solution{
         // Your code here
         long long ans = arr[0];
         long long sum = arr[0];
+        
         for(int i=1;i<n;i++){
-            sum=max(sum+arr[i],(long long)arr[i]);
-            // if(sum<0){
-            //     sum=arr[i];
-            // }
-            
-            ans=max(ans,sum);
+           sum=max((long long)arr[i],(long long)arr[i]+sum);
+           ans=max(ans,sum);
         }
         
         return ans;
+        
     }
 };
 
