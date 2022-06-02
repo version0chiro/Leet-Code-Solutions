@@ -81,10 +81,9 @@ class Solution
     {
         // code here
         // just remove the loop without losing any nodes
-        
         if(!head || !head->next) return;
         
-        Node*  fast = head->next->next;
+        Node* fast = head->next->next;
         Node* slow = head->next;
         
         while(fast && fast->next){
@@ -96,20 +95,21 @@ class Solution
         
         if(!fast || !fast->next) return;
         
-        slow = head;
+        slow= head;
         
-        if(slow==fast){
+        if(fast==slow){
             while(fast->next!=slow){
                 fast=fast->next;
             }
         }else{
             while(fast->next!=slow->next){
-                slow=slow->next;
                 fast=fast->next;
+                slow=slow->next;
             }
         }
         
         fast->next=NULL;
+        
         return;
     }
 };
