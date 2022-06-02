@@ -23,28 +23,15 @@ class Solution{
     
        /*returns min element from stack*/
        int getMin(){
-           
            if(s.size()==0) return -1;
-           
            return minEle;
-           
            //Write your code here
        }
        
        /*returns poped element from stack*/
        int pop(){
            
-            if(s.size()==0) return -1;
-           
-           int ans = s.top();
-           s.pop();
-           
-           if(ans<minEle){
-               int r = minEle;
-               minEle = 2*minEle - ans;
-               
-               return r;
-           }
+                      
            
            return ans;
            
@@ -53,20 +40,23 @@ class Solution{
        
        /*push element x into the stack*/
        void push(int x){
-            if(s.size()==0) {
+           
+           //Write your code here
+           if(s.size()==0){
+               minEle = x;
                s.push(x);
-               minEle=x;
                return;
            }
            
            if(x<minEle){
-               s.push(2*x-minEle);
-               minEle=x;
+               s.push(2*x-minEle); 
+               minEle = x;
+               
                return;
+               
+           }else{
+               s.push(x);
            }
-           
-           s.push(x);
-           //Write your code here
        }
 };
 
