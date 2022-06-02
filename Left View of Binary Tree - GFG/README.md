@@ -1,5 +1,5 @@
 # Left View of Binary Tree
-##  Easy 
+## Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a Binary Tree, print Left view of it. Left view of a Binary Tree is set of nodes visible when tree is visited from Left side. The task is to complete the function <strong>leftView()</strong>, which accepts root of the tree as argument.</span></p>
 
@@ -31,7 +31,7 @@
 </span></pre>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
-You just have to <strong>complete </strong>the function <strong>leftView() </strong>that prints the left view. The newline is automatically appended by the driver code.</span><br>
+You just have to <strong>complete </strong>the function <strong>leftView() </strong>that returns an array containing the nodes that are in&nbsp;the left view. The newline is automatically appended by the driver code.</span><br>
 <span style="font-size:18px"><strong>Expected Time Complexity:&nbsp;</strong>O(N).<br>
 <strong>Expected Auxiliary Space:&nbsp;</strong>O(Height of the Tree).</span></p>
 
