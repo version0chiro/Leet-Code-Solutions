@@ -31,9 +31,18 @@ class Solution{
        /*returns poped element from stack*/
        int pop(){
            
-                      
+           if(s.size()==0) return -1;
            
-           return ans;
+           int ans = s.top();
+           
+           s.pop();
+           
+           if(ans<minEle){
+               auto r  = minEle;
+               minEle = 2*minEle - ans;
+               return r;
+           }else
+                return ans;
            
            //Write your code here
        }
