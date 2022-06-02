@@ -1,5 +1,5 @@
 # Kadane's Algorithm
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array <strong>Arr[]&nbsp;</strong>of <strong>N</strong> integers. Find the contiguous sub-array(containing at least one number) which has the&nbsp;maximum sum and return its sum.</span></p>
 
