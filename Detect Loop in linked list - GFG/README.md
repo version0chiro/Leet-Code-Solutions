@@ -1,5 +1,5 @@
 # Detect Loop in linked list
-##  Easy 
+## Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a linked list of <strong>N</strong> nodes. The task is to check if the&nbsp;linked list has a loop. Linked list can contain&nbsp;self loop.</span></p>
 
@@ -8,7 +8,7 @@
 <pre><span style="font-size:18px"><strong>Input:
 </strong>N = 3
 value[] = {1,3,4}
-x = 2
+x(position at which tail is connected) = 2
 <strong>Output: </strong>True<strong>
 Explanation: </strong>In above test case N = 3.
 </span><span style="font-size:18px">The linked list with nodes N = 3 is
