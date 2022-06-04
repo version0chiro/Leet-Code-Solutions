@@ -26,33 +26,44 @@ public:
         
         return true;
     }
-    void solve(vector<vector<string>> &ans,vector<string> &grid,int i,int j,int n,int q){
-        // cout<<q<<"\n";
-        if(q==0){
-            ans.push_back(grid);
+    void solve(int m,int n,vector<string> board,vector<vector<string>> &ans,int i,int j){
+        if(n==0){
+            ans.push_back(board);
             return;
         }
         
-        if(i==n || j==n){
-            return;
+        // cout<<n<<" \n";
+        // cout<<i<<" "<<j<<" \n";
+        
+        if(j==m || i==m) return;
+        
+        if(check(board,i,j,m)){
+            board[i][j]='Q';
+            // cout<<" placing queen at "<<i<<" "<<j<<" with "<<n<<" remaning "<<"\n";
+            solve(m,n-1,board,ans,i+1,0);
+            board[i][j]='.';
         }
         
-        if(check(grid,i,j,n)){
-            grid[i][j]='Q';
-            solve(ans,grid,i+1,0,n,q-1);
-            grid[i][j]='.';
-        }
+        solve(m,n,board,ans,i,j+1);
         
-        solve(ans,grid,i,j+1,n,q);
+        
+        
+        
         
         
     }
-    
     vector<vector<string>> solveNQueens(int n) {
         vector<vector<string>> ans;
-        vector<string> grid(n,string(n,'.'));;
-        int q=n;
-        solve(ans,grid,0,0,n,q);
+                vector<string> board(n,string(n,'.'));;
+
+        
+//         for(auto a:board){
+//             cout<<" "<<a<<"\n";
+//         }
+        
+        solve(n,n,board,ans,0,0);
+        
         return ans;
+        
     }
 };
