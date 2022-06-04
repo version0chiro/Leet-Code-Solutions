@@ -26,7 +26,7 @@ public:
         
         return true;
     }
-    void solve(int m,int n,vector<string> board,vector<vector<string>> &ans,int i,int j){
+    void solve(int m,int n,vector<string> &board,vector<vector<string>> &ans,int i,int j){
         if(n==0){
             ans.push_back(board);
             return;
