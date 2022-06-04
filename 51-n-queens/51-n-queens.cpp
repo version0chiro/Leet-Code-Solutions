@@ -61,15 +61,8 @@ public:
     }
     vector<vector<string>> solveNQueens(int n) {
         vector<vector<string>> ans;
-        vector<string> board;
-        for(int i=0;i<n;i++){
-            string temp = "";
-            for(int j=0;j<n;j++){
-                temp.push_back('.');
-            }
-            
-            board.push_back(temp);
-        }
+                vector<string> board(n,string(n,'.'));;
+
         
 //         for(auto a:board){
 //             cout<<" "<<a<<"\n";
