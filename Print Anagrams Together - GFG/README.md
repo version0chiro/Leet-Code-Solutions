@@ -3,6 +3,8 @@
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array of strings, return all groups of strings that are anagrams. The groups must be created in order of their appearance in the original array. Look at the sample case for clarification.</span></p>
 
+<p><strong><span style="font-size:18px">Note: The finial output will be in&nbsp;lexicographic order.</span></strong></p>
+
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
