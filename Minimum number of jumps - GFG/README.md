@@ -1,8 +1,9 @@
 # Minimum number of jumps
 ## Medium 
 <div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given an array of <strong>N</strong> integers <strong>arr[]</strong> where each element represents the max number of steps that can be made forward from that element. Find&nbsp;the minimum number of jumps to reach the end of the array (starting from the first element).&nbsp;If an element is <strong>0</strong>, then you cannot move through that element.<br>
-<strong>Note: </strong>Return -1 if you can't reach the end of the array.</span></p>
+                <p></p><p><span style="font-size:18px">Given an array of <strong>N</strong> integers <strong>arr[]</strong> where each element represents the max number of steps that can be made forward from that element. Find&nbsp;the minimum number of jumps to reach the end of the array (starting from the first element).&nbsp;If an element is <strong>0</strong>, then you cannot move through that element.</span><br>
+<br>
+<span style="font-size:18px"><strong>Note: </strong>Return -1 if you can't reach the end of the array.</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span><span style="font-size:18px"> </span></p>
@@ -15,7 +16,7 @@
 <span style="font-size:18px">First jump from 1st element to 2nd 
 element with value 3. Now, from here 
 we jump to 5th element with value 9, 
-and from here we will jump to last. </span></pre>
+and from here we will jump to the last. </span></pre>
 
 <p><strong><span style="font-size:18px">Example 2:</span></strong></p>
 
@@ -30,7 +31,7 @@ and then jump to the last element.</span>
 
 <p><br>
 <span style="font-size:18px"><strong>Your task:</strong><br>
-You don't need to read input or print anything. Your task is to complete function <strong>minJumps()</strong> which takes the array <strong>arr</strong> and it's size <strong>N</strong> as input parameters and returns the minimum number of jumps. If not possible returns -1.</span></p>
+You don't need to read input or print anything. Your task is to complete function <strong>minJumps()</strong> which takes the array <strong>arr</strong> and it's size <strong>N</strong> as input parameters and returns the minimum number of jumps. If not possible return -1.</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Expected Time Complexity:&nbsp;</strong>O(N)<br>
