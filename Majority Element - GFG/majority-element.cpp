@@ -17,30 +17,33 @@ class Solution{
     {
         
         // your code here
-        int c =1;
-        int lastInt = a[0];
+        
+        int c = 1;
+        int last = a[0];
         
         for(int i=1;i<size;i++){
-            if(lastInt==a[i])c++;
-            
-            else{
+            if(a[i]==last){
+                c++;
+            }else{
                 c--;
-                
                 if(c==0){
-                    lastInt=a[i];
+                    last=a[i];
                     c=1;
                 }
             }
         }
         
+        // cout<<last<<" \n";
         
-        c=0;
+        int newC = 0;
         
         for(int i=0;i<size;i++){
-            if(lastInt==a[i]) c++;
+            if(last==a[i]){
+                newC++;
+            }
         }
         
-        if(c>size/2) return lastInt;
+        if(newC>size/2) return last;
         
         return -1;
         
