@@ -106,49 +106,52 @@ struct Node
 class Solution {
 public:
     vector<int> ans;
-    void left(Node *root){
+    void leftSide(Node *root){
         if(!root || (!root->left && !root->right)) return;
         
         ans.push_back(root->data);
-        if(root->left) left(root->left);
-        else left(root->right);
+        
+        if(root->left){
+            leftSide(root->left);
+        }else{
+            leftSide(root->right);
+        }
     }
     
-    void right(Node *root){
+    void rightSide(Node *root){
         if(!root || (!root->left && !root->right)) return;
         
-        if(root->right) right(root->right);
-        else right(root->left);
         
+        if(root->right){
+            rightSide(root->right);
+        }else{
+            rightSide(root->left);
+        }
         ans.push_back(root->data);
+        
     }
     
     void leafs(Node *root){
         if(!root) return;
         
-        if(!root->left && !root->right){
+        if(!root->left && !root->right) {
             ans.push_back(root->data);
+            return;
         }
         
         leafs(root->left);
         leafs(root->right);
-        
-        
     }
-    
     vector <int> boundary(Node *root)
     {
-        //Your code here
         ans.push_back(root->data);
-        
-        left(root->left);
-        
+        leftSide(root->left);
         leafs(root->left);
         leafs(root->right);
-        
-        right(root->right);
+        rightSide(root->right);
         
         return ans;
+        //Your code here
     }
 };
 
