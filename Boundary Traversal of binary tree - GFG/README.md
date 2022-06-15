@@ -1,5 +1,5 @@
 # Boundary Traversal of binary tree
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a Binary Tree, find its Boundary Traversal. The traversal should be in the following order:&nbsp;</span></p>
 
