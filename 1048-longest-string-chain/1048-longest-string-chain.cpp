@@ -7,7 +7,7 @@ public:
         
         sort(words.begin(),words.end(),cmp);
         
-        map<string,int> m;
+        unordered_map<string,int> m;
         
         int res = 0;
         
