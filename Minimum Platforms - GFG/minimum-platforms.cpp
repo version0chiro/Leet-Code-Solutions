@@ -13,24 +13,28 @@ class Solution{
     int findPlatform(int arr[], int dep[], int n)
     {
     	// Your code here
+    	
+    	int p = 1;
+    	
     	sort(arr,arr+n);
     	sort(dep,dep+n);
     	
-    	int i=1;
-    	int j=0;
-    	
-    	int p = 1;
     	int ans = 1;
     	
+    	int i = 1;
+    	int j=0;
+    	
     	while(i<n && j<n){
-    	    if(dep[j]<arr[i]){
-    	        p--;
-    	        j++;
-    	    }else{
+    	    
+    	    if(arr[i]<=dep[j]){
     	        p++;
     	        i++;
+    	    }else{
+    	        p--;
+    	        j++;
     	    }
-    	    ans=max(ans,p);
+    	    
+    	    ans=max(p,ans);
     	}
     	
     	return ans;
