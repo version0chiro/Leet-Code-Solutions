@@ -97,52 +97,53 @@ class Solution
     public:
     
     bool isLeaf(Node* root){
-        if(!root) return true;
+        if(!root) return false;
         
         if(!root->left && !root->right) return true;
         
         return false;
     }
-    
     bool isSumTree(Node* root)
-    {   
-            
+    {
+         // Your code here
+         
          if(!root || isLeaf(root)) return true;
          
-         
          if(isSumTree(root->left) && isSumTree(root->right)){
-             int l,r;
+             
+             int l;
+             int r;
              
              if(!root->left){
-                 l=0;
-                 
+                l=0;    
              }
              else if(isLeaf(root->left)){
                  l=root->left->data;
-             } else{
+             }else{
                  l=2*root->left->data;
              }
              
-              if(!root->right){
+             if(!root->right){
                  r=0;
-                 
-             }else 
-                if(isLeaf(root->right)){
+             }
+             else if(isLeaf(root->right)){
                  r=root->right->data;
              }else{
                  r=2*root->right->data;
              }
              
-            //  cout<<root->data<<" "<<l<<" "<<r<<" \n";
              
-             if(root->data==l+r) return true;
+             if(root->data==l+r){
+                 return true;
+             }else{
+                 return false;
+             }
              
-             else return false;
+             
              
          }
          
          return false;
-         // Your code here
     }
 };
 
