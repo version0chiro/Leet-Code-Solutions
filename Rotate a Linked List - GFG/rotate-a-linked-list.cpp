@@ -34,25 +34,25 @@ class Solution
     Node* rotate(Node* head, int k)
     {
         // Your code here
+        
         Node* tail = head;
         
         while(tail->next){
             tail=tail->next;
         }
         
-        tail->next=head;
+        tail->next = head;
         
-        Node* prev = tail;
-        tail=head;
+        Node* curr = head;
         
         while(k--){
-            prev=tail;
+            curr=curr->next;
             tail=tail->next;
-        
         }
         
-        prev->next=NULL;
-        return tail;
+        tail->next = NULL;
+        
+        return curr;
     }
 };
     
