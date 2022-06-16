@@ -11,21 +11,24 @@ public:
 	// Function to find maximum product subarray
 	long long maxProduct(vector<int> arr, int n) {
 	    // code here
+	    
+	    long long lP = 1;
+	    long long  rP = 1;
+	    
 	    long long ans = INT_MIN;
-	    long long leftP = 1;
-	    long long rightP = 1;
 	    
 	    for(int i=0;i<n;i++){
-	        leftP=leftP*arr[i];
-	        if(leftP==0) leftP=1;
 	        
-	        rightP = rightP*arr[n-i-1];
-	        if(rightP==0)rightP=1;
+	        lP=lP*arr[i]==0?1:lP*arr[i];
 	        
-	        ans=max(max(leftP,rightP),ans);
+	        rP=rP*arr[n-i-1]==0?1:rP*arr[n-i-1];
+	        
+	       // cout<<lP<<" "<<rP<<" \n";
+	        ans=max(max(lP,rP),ans);
 	    }
 	    
 	    return ans;
+	    
 	}
 };
 
