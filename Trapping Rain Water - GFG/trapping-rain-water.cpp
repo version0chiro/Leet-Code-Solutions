@@ -11,29 +11,27 @@ class Solution{
     public:
     long long trappingWater(int arr[], int n){
         // code here
-        int lW = arr[0];
-        int rW = arr[n-1];
+        int lw = arr[0];
+        int rw = arr[n-1];
         
-        int lP = 0;
-        int rP = n-1;
+        int l=0;
+        int r = n-1;
         
         long long total = 0;
         
-        while(lP<rP){
-            // cout<<rP<<" "<<lP<<"\n";
-            if(arr[rP]<arr[lP]){
-                total+=max(0,rW-arr[rP]);
-                rW=max(rW,arr[rP]);
-                rP--;
+        while(l<r){
+            if(arr[r]<arr[l]){
+                total+=max(rw-arr[r],0);
+                rw=max(rw,arr[r]);
+                r--;
             }else{
-                total+=max(0,lW-arr[lP]);
-                lW=max(lW,arr[lP]);
-                lP++;
+                total+=max(lw-arr[l],0);
+                lw=max(lw,arr[l]);
+                l++;
             }
         }
         
         return total;
-        
     }
 };
 
