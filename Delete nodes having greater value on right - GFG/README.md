@@ -1,7 +1,7 @@
 # Delete nodes having greater value on right
 ## Medium 
 <div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a singly linked list, remove all the nodes which have a greater value on its following nodes.</span></p>
+                <p></p><p><span style="font-size:18px">Given a singly linked list, remove all the nodes which have a greater value on their right side.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
