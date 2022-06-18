@@ -49,24 +49,14 @@ class LRUCache
         if(m.find(key)!=m.end()){
             int data = m[key]->data;
             
-            Node* foundNode = m[key];
+            // Node* foundNode = m[key];
             
-            foundNode->prev->next=foundNode->next;
-            foundNode->next->prev=foundNode->prev;
+            // foundNode->prev->next=foundNode->next;
+            // foundNode->next->prev=foundNode->prev;
             
-            m.erase(key);
+            // m.erase(key);
             
-            Node* newNode = new Node(key,data);
-        
-        Node* last_tail = tail->prev;
-        
-        last_tail->next=newNode;
-        newNode->prev = last_tail;
-        
-        newNode->next=tail;
-        tail->prev=newNode;
-        
-        m[key]=newNode;
+            set(key,data);
             
             return data;
         }else{
