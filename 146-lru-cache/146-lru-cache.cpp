@@ -1,103 +1,126 @@
 class Node{
-    public:
-    int data;
-    int id;
-    Node* next;
-    Node* prev;
+        public:
+            int val;
+            int key;
+            Node* left;
+            Node* right;        
     
-    Node(int data,int id){
-        this->data=data;
-        this->id=id;
-        
-    }
+            Node(int data,int key){
+                this->val=data;
+                this->key=key;
+            }       
+            
 };
+
+
 
 class LRUCache {
 public:
-    unordered_map<int,Node*> m;
-    
     Node* head = new Node(-1,-1);
     Node* tail = new Node(-1,-1);
-    
-    int cap = 0;
+    unordered_map<int,Node*> m;
+    int size = 0;
+    int cap;
     
     LRUCache(int capacity) {
         this->cap = capacity;
-        this->head->next = this->tail;
-        this->tail->prev=this->head;
+        head->right = tail;
+        tail->left = head;
+            
         
     }
     
     int get(int key) {
-        if(m.find(key)!=m.end()){
-            
-            auto ansN = m[key];
-            
-            ansN->prev->next=ansN->next;
-            ansN->next->prev=ansN->prev;
-            
-            ansN->next = head->next;
-            ansN->prev = head;
-            
-            head->next->prev = ansN;
-            head->next = ansN;
-            
-            return ansN->data;
-            
-        }
-        return -1;
+        if(m.find(key)==m.end())
+            return -1;
         
+        int val = m[key]->val;
+        
+        m[key]->left->right = m[key]->right;
+        m[key]->right->left=m[key]->left;
+        
+        m.erase(key);
+        
+        Node* temp = new Node(val,key);
+            
+        auto last_tail = tail->left;
+
+        // cout<<last_tail->val;
+
+        last_tail->right=temp;
+        tail->left = temp;
+
+        temp->right=tail;
+        temp->left=last_tail;
+
+        m[key] = temp;
+        
+        
+        return val;
     }
     
     void put(int key, int value) {
-        
         if(m.find(key)!=m.end()){
-            m[key]->data = value;
-             auto ansN = m[key];
+             int val = m[key]->val;
+        
+        m[key]->left->right = m[key]->right;
+        m[key]->right->left=m[key]->left;
+        
+        m.erase(key);
+        
+        Node* temp = new Node(value,key);
             
-            ansN->prev->next=ansN->next;
-            ansN->next->prev=ansN->prev;
-            
-            ansN->next = head->next;
-            ansN->prev = head;
-            
-            head->next->prev = ansN;
-            head->next = ansN;
+        auto last_tail = tail->left;
+
+        // cout<<last_tail->val;
+
+        last_tail->right=temp;
+        tail->left = temp;
+
+        temp->right=tail;
+        temp->left=last_tail;
+
+        m[key] = temp;
             return;
         }
         
-        
-        if(cap<=0){
-            
-            auto tempD = this->tail->prev;
-            
-            this->tail->prev = tempD->prev;
-            
-            tempD->prev->next= this->tail;
-            
-            cout<<"removing "<<tempD->id<<"\n";
-            
-            
-            m.erase(tempD->id);
-            
-            delete tempD;
-            
-            
-        }
-        
+        if(size<cap){
             Node* temp = new Node(value,key);
-            temp->next = head->next;
-            temp->prev = head;
-            head->next->prev = temp;
-            head->next = temp;
             
-            m[key]=temp;
-        
-        cap--;
+            auto last_tail = tail->left;
             
+            // cout<<last_tail->val;
             
-        
-        
+            last_tail->right=temp;
+            tail->left = temp;
+            
+            temp->right=tail;
+            temp->left=last_tail;
+         
+            m[key] = temp;
+            
+            size++;
+        }else{
+            
+            auto next_head = head->right;
+            next_head->right->left = head;
+            head->right = next_head->right;
+            
+            m.erase(next_head->key);
+                
+            Node* temp = new Node(value,key);
+
+            auto last_tail = tail->left;
+
+            last_tail->right=temp;
+            tail->left = temp;
+            
+            temp->right=tail;
+            temp->left=last_tail;
+         
+            m[key] = temp;
+
+        }
     }
 };
 
