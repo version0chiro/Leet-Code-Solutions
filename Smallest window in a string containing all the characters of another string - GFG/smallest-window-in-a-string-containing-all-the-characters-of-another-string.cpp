@@ -9,55 +9,60 @@ class Solution
     public:
     //Function to find the smallest window in the string s consisting
     //of all the characters of string p.
-    string smallestWindow (string s, string t)
+    string smallestWindow (string s, string p)
     {
         // Your code here
-        int n1=s.length();
-        int n2=t.length();
+        int n1 = s.size();
+        int n2 = p.size();
         
-        int s1[256] = {0};
-        int s2[256] = {0};
+       int m1[256] = {0};
+        int m2[256] = {0};
         
-        for(auto p:t){
-            s2[p]++;
+        for(auto a:p){
+            m2[a]++;
         }
         
+        int start = 0;
+        int start_index = -1;
+        int minLen=INT_MAX;
+        int i=0;
         
-        int count=0;
-        int start =0 ,min_len=INT_MAX,start_index=-1;
-        for(int j=0;j<n1;j++){
+        int c = 0;
+        
+        while(i<n1){
             
-            s1[s[j]]++;
+            m1[s[i]]++;
             
-            if(s1[s[j]]<=s2[s[j]]){
-                count++;
+            if(m2[s[i]]>=m1[s[i]]){
+                // m2[p[i]]--;
+                c++;
             }
             
-            if(count==n2){
-                while(s1[s[start]]>s2[s[start]]){
-                    if(s1[s[start]]>s2[s[start]]){
-                        s1[s[start]]--;
+            if(c==n2){
+                while(m1[s[start]]>m2[s[start]]){
+                    if(m1[s[start]]>m2[s[start]]){
+                        m1[s[start]]--;
                     }
                     start++;
                 }
                 
-                int temp_length= j-start+1;
-                if(temp_length<min_len){
+                int temp_length = i-start+1;
+                if(temp_length<minLen){
                     start_index=start;
-                    min_len=temp_length;
+                    minLen=temp_length;
                 }
             }
             
-            
-            
-        }
-        if(start_index==-1){
-            return "-1";
+            i++;
         }
         
-         else{
-         return s.substr(start_index,min_len);
-         }
+        
+        if(start_index==-1){
+            return "-1";
+        }else{
+            return s.substr(start_index,minLen);
+        }
+        
     }
 };
 
