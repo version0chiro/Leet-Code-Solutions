@@ -6,106 +6,138 @@ using namespace std;
  // } Driver Code Ends
 // design the class in the most optimal way
 
-struct Node{
-    int key,val;
-    struct Node* prev;
-    struct Node* next;
-    Node(int _key, int _val){
-        key = _key;
-        val = _val;
-        prev = next = NULL;
-    }
+class Node{
+        public:
+            int val;
+            int key;
+            Node* left;
+            Node* right;        
+    
+            Node(int data,int key){
+                this->val=data;
+                this->key=key;
+            }       
+            
 };
 
-class LRUCache
-{
-    private:
+
+
+class LRUCache {
+public:
+    Node* head = new Node(-1,-1);
+    Node* tail = new Node(-1,-1);
+    unordered_map<int,Node*> m;
+    int size = 0;
     int cap;
-    int size;
-    struct Node* head;
-    struct Node* tail;
-    unordered_map<int, struct Node*> mp;
+    
+    LRUCache(int capacity) {
+        this->cap = capacity;
+        head->right = tail;
+        tail->left = head;
+            
+        
+    }
+    
+    int get(int key) {
+        if(m.find(key)==m.end())
+            return -1;
+        
+        int val = m[key]->val;
+        
+        m[key]->left->right = m[key]->right;
+        m[key]->right->left=m[key]->left;
+        
+        m.erase(key);
+        
+        Node* temp = new Node(val,key);
+            
+        auto last_tail = tail->left;
 
-    public:
-    //Constructor for initializing the cache capacity with the given value.
-    LRUCache(int _cap)
-    {
-        // code here
-        cap = _cap;
-        mp.clear();
-        size = 0;
-        head = tail = NULL;
+        // cout<<last_tail->val;
+
+        last_tail->right=temp;
+        tail->left = temp;
+
+        temp->right=tail;
+        temp->left=last_tail;
+
+        m[key] = temp;
+        
+        
+        return val;
     }
     
-    //Function to return value corresponding to the key.
-    int get(int key)
-    {
-        // your code here
-        if(mp.find(key) != mp.end()){
-            set(key, mp[key]->val);
-            return mp[key]->val;
+    void set(int key, int value) {
+        if(m.find(key)!=m.end()){
+             int val = m[key]->val;
+        
+        m[key]->left->right = m[key]->right;
+        m[key]->right->left=m[key]->left;
+        
+        m.erase(key);
+        
+        Node* temp = new Node(value,key);
+            
+        auto last_tail = tail->left;
+
+        // cout<<last_tail->val;
+
+        last_tail->right=temp;
+        tail->left = temp;
+
+        temp->right=tail;
+        temp->left=last_tail;
+
+        m[key] = temp;
+            return;
         }
-        return -1;
-    }
-    
-    //Function for storing key-value pair.
-    void set(int key, int value)
-    {
-        // your code here
-        if(mp.find(key) != mp.end()){
-            struct Node* temp = mp[key];
-            temp->val = value;
+        
+        if(size<cap){
+            Node* temp = new Node(value,key);
             
-            // temp == head
-            if(temp == head) return;
+            auto last_tail = tail->left;
             
-            //temp == tail
-            if(temp==tail){
-                tail = tail->prev;
-                tail->next = NULL;
-                temp->prev = NULL;
-                
-                temp->next = head;
-                head->prev = temp;
-                head = temp;
-            }else{ // temp in middle
-                temp->prev->next = temp->next;
-                temp->next->prev = temp->prev;
-                
-                temp->prev = NULL;
-                temp->next = head;
-                head->prev = temp;
-                head = temp;
-            }
+            // cout<<last_tail->val;
+            
+            last_tail->right=temp;
+            tail->left = temp;
+            
+            temp->right=tail;
+            temp->left=last_tail;
+         
+            m[key] = temp;
+            
+            size++;
         }else{
-            struct Node* temp = new Node(key, value);
-            mp[key] = temp;
             
-            if(size == cap){
-                mp.erase(tail->key);
-                if(head == tail){
-                    head = tail = temp;
-                }else{
-                    tail = tail->prev;
-                    tail->next = NULL;
-                    
-                    temp->next = head;
-                    head->prev = temp;
-                    head = temp;
-                }
-            }else{
-                size++;
-                if(head==NULL){
-                    head = tail = temp;
-                }else{
-                    temp->next = head;
-                    head->prev = temp;
-                    head = temp;
-                }
-            }
+            auto next_head = head->right;
+            next_head->right->left = head;
+            head->right = next_head->right;
+            
+            m.erase(next_head->key);
+                
+            Node* temp = new Node(value,key);
+
+            auto last_tail = tail->left;
+
+            last_tail->right=temp;
+            tail->left = temp;
+            
+            temp->right=tail;
+            temp->left=last_tail;
+         
+            m[key] = temp;
+
         }
     }
 };
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
 
 // { Driver Code Starts.
 
