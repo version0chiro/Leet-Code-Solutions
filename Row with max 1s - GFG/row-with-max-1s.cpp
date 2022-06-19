@@ -8,25 +8,27 @@ class Solution{
 public:
 	int rowWithMax1s(vector<vector<int> > arr, int n, int m) {
 	    // code here
+	    
 	    int j = m-1;
-	    int max_row_index=0;
+	    int row=0;
 	    
 	    for(int i=0;i<n;i++){
 	        bool flag = false;
 	        
 	        while(j>=0 && arr[i][j]==1){
-	            j=j-1;
+	            j--;
 	            flag=true;
 	        }
 	        
 	        if(flag){
-	            max_row_index=i;
+	            row=i;
 	        }
 	    }
 	    
-	    if(max_row_index==0&&arr[0][m-1]==0) return -1;
+	    if(row==0 && arr[0][m-1]==0) return -1;
 	    
-	    return max_row_index;
+	    return row;
+	    
 	}
 
 };
