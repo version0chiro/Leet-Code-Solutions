@@ -106,44 +106,47 @@ int main() {
     return 0;
 }// } Driver Code Ends
 
-Node*getSuccessor(Node *curr)
-{
-    curr = curr->right;
-    while(curr!=NULL && curr->left!=NULL)
-        curr = curr->left;
+
+// Function to delete a node from BST.
+
+Node *getNext(Node *root){
+    Node* curr = root->right;
+    while(curr && curr->left!=NULL){
+        curr=curr->left;
+    }
+    
     return curr;
 }
 
 Node *deleteNode(Node *root, int X) {
     // your code goes here
-    if(root == NULL)
-    return root;
-    else if(root->data > X)
-        root->left = deleteNode(root->left,X);
-    else if(root->data < X)
-        root->right = deleteNode(root->right,X);
-        
-    else
-    {
-        if(root->left == NULL)
-        {
-            Node *temp = root->right;
-            delete root;
-            return temp;
-        }
-        else if(root->right == NULL)
-        {
-            Node *temp = root->left;
-            delete root;
-            return temp;
-        }
-        else
-        {
-            Node *succ = getSuccessor(root);
-            root->data = succ->data;
-            root->right = deleteNode(root->right,succ->data);
-        }
-    }
-    return root;
     
+    if(!root) return NULL;
+    
+    if(root->data==X){
+        //
+        if(root->left==NULL){
+            auto temp = root->right;
+            delete root;
+            return temp;
+        }else if(root->right==NULL){
+            auto temp=root->left;
+            delete root;
+            return temp;
+        }else {
+            auto suc = getNext(root);
+            root->data = suc->data;
+            root->right=deleteNode(root->right,suc->data);
+            
+        }
+        
+    }
+    
+    if(root->data<X){
+        root->right=deleteNode(root->right,X);
+    }else{
+        root->left=deleteNode(root->left,X);
+    }
+    
+    return root;
 }
