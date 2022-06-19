@@ -13,22 +13,22 @@ class Solution{
     int maxIndexDiff(int A[], int N) 
     { 
         // Your code here
-        int maxA[N];
         
-        maxA[N-1]=A[N-1];
+        int maxArr[N];
         
-        for(int i=N-2;i>=0;i--){
-            maxA[i]=max(maxA[i+1],A[i]);
-            
+        maxArr[N-1]=A[N-1];
+        
+        for(int i=N-2;i>=0;i-- ){
+            maxArr[i]=max(maxArr[i+1],A[i]);
         }
         
-        int i=0;
-        int j =0;
         
+        int i=0;
+        int j=0;
         int ans = INT_MIN;
         
         while(i<N && j<N){
-            if(A[i]<=maxA[j]){
+            if(A[i]<=maxArr[j]){
                 ans=max(ans,j-i);
                 j++;
             }else{
