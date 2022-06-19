@@ -10,12 +10,12 @@ class Solution{
     // N : Size of the Array arr[]
     // Function to count inversions in the array.
     
-    long long int merge(long long arr[],long long int l,long long int mid,long long int r){
-        long long int inv_c = 0;
+    long long int merge(long long arr[],int l,int r,int mid){
+        long long int inv_c =0;
         
-        long long temp[r+1];
+        long long temp[r];
         
-        long long int  i,j,k;
+        int i,j,k;
         
         i=l;
         j=mid;
@@ -33,10 +33,10 @@ class Solution{
         while(i<mid){
             temp[k++]=arr[i++];
         }
-        
+
         while(j<=r){
             temp[k++]=arr[j++];
-        }
+        }        
         
         for(int i=l;i<=r;i++){
             arr[i]=temp[i];
@@ -45,24 +45,28 @@ class Solution{
         return inv_c;
     }
     
-    long long int mergeSort(long long arr[],int l,int r){
+    
+    long long int mergeS(long long arr[],int l,int r){
         long long int inv_c=0;
         
         if(l<r){
             int mid = (l+r)/2;
-            inv_c+=mergeSort(arr,l,mid);
-            inv_c+=mergeSort(arr,mid+1,r);
             
-            inv_c+=merge(arr,l,mid+1,r);
+            inv_c+=mergeS(arr,l,mid);
+            inv_c+=mergeS(arr,mid+1,r);
             
+            
+            inv_c+=merge(arr,l,r,mid+1);
         }
         
         return inv_c;
     }
+    
     long long int inversionCount(long long arr[], long long N)
     {
         // Your Code Here
-        return mergeSort(arr,0,N-1);
+        
+        return mergeS(arr,0,N-1);
     }
 
 };
