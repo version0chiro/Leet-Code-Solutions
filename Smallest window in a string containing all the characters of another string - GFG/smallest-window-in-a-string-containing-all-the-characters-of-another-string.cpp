@@ -12,8 +12,9 @@ class Solution
     string smallestWindow (string s, string p)
     {
         // Your code here
-        int n1=s.size();
-        int n2=p.size();
+        
+        int n1 = s.size();
+        int n2 = p.size();
         
         int m1[256]={0};
         int m2[256]={0};
@@ -22,12 +23,15 @@ class Solution
             m2[a]++;
         }
         
-        int count =0;
-        int start =0 ;
-        int start_index=-1;
-        int minLen=INT_MAX;
         
-        for(int i=0;i<n1;i++){
+        int ans = INT_MAX;
+        int start_index=-1;
+        int start=0;
+        int i=0;
+        int count=0;
+        
+        while(i<n1){
+            
             m1[s[i]]++;
             
             if(m1[s[i]]<=m2[s[i]]){
@@ -39,23 +43,27 @@ class Solution
                     if(m1[s[start]]>m2[s[start]]){
                         m1[s[start]]--;
                     }
+                    
                     start++;
                 }
                 
-                int tempLen = i-start+1;
+                int tempLength = i-start+1;
                 
-                if(tempLen<minLen){
-                    minLen=tempLen;
+                if(tempLength<ans){
+                    ans=tempLength;
                     start_index=start;
                 }
             }
+            
+            i++;
         }
         
         if(start_index==-1) return "-1";
         
-        return s.substr(start_index,minLen);
+        return s.substr(start_index,ans);
         
     }
+    
 };
 
 // { Driver Code Starts.
