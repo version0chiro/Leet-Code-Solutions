@@ -1,5 +1,5 @@
 # Maximum Path Sum between 2 Leaf Nodes
-##  Hard 
+## Hard 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a binary tree in which each node element contains a number. Find the maximum possible path sum from one leaf node to another leaf node.</span></p>
 
