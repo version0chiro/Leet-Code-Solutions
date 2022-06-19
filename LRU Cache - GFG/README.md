@@ -1,5 +1,5 @@
 # LRU Cache
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Design a data structure that works like a LRU Cache. Here <strong>cap</strong>&nbsp;denotes&nbsp;the capacity of the cache and Q denotes the number of queries. Query can be </span><span style="font-size:18px">of two types:</span></p>
 
