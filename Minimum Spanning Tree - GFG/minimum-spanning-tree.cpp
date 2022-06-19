@@ -12,50 +12,46 @@ class Solution
     int spanningTree(int V, vector<vector<int>> adj[])
     {
         // code here
+        vector<bool> mst(V+1,false);
+        
+        vector<int> key(V+1,INT_MAX);
         
         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
         
-        vector<int> key(V,INT_MAX);
-        vector<bool> mst(V,false);
-        vector<int>  parent(V,-1);
         
-        key[0]=0;
-        parent[0]=-1;
         
         pq.push({0,0});
         
+        key[0]=0;
+        
         while(pq.size()){
             
-            auto top = pq.top();
-            pq.pop();
+            auto top=pq.top();
+            
             mst[top.second]=true;
-            // weight = top.first;
+            
+            pq.pop();
             
             for(auto a:adj[top.second]){
-                int v=a[0];
-                int w=a[1];
-                
-                if(mst[v]==false &&  key[v]>w){
-                    key[v]=w;
-                    pq.push({w,v});
+                if(mst[a[0]]==false && a[1]<key[a[0]]){
+                    key[a[0]]=a[1];
+                    pq.push({a[1],a[0]});
                 }
             }
-        
+            
             
             
         }
         
-        int sum=0;
         
-        for(auto a:key){
-            // cout<<a<<" ";
-            sum+=a;
+        int ans = 0;
+        
+        for(int i=0;i<V;i++){
+            ans+=key[i];
         }
         
-        return sum;
         
-        
-        
+        return ans;
         
         
         
