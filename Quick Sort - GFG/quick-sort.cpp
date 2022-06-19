@@ -21,32 +21,31 @@ class Solution
     {
         // code here
         if(low<high){
-            int pivot = partition(arr,low,high);
-            quickSort(arr,low,pivot-1);
-            quickSort(arr,pivot+1,high);
+            int id = partition(arr,low,high);
+            quickSort(arr,low,id-1);
+            quickSort(arr,id+1,high);
         }
     }
     
     public:
     int partition (int arr[], int low, int high)
     {
+        
+        int p = arr[high];
+        int i = low-1;
+        
+        for(int j=low;j<=high;j++){
+            if(p>arr[j]){
+                i++;
+                swap(arr[i],arr[j]);
+            }
+        }
+        
+        swap(arr[i+1],arr[high]);
+        
+        return i+1;
+        
        // Your code here
-       int p=arr[high];
-       int i=low-1;
-       
-       int j=low;
-       
-       while(j<=high){
-           if(arr[j]<p){
-               i++;
-               swap(arr[j],arr[i]);
-           }
-           j++;
-       }
-       
-       swap(arr[i+1],arr[high]);
-       
-       return i+1;
     }
 };
 
