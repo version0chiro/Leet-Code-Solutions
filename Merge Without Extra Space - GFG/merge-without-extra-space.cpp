@@ -7,14 +7,14 @@ using namespace std;
 class Solution{
 public:
 	void merge(int arr1[], int arr2[], int n, int m) {
-	    // code here'
-	    int i =0;
+	    // code here
+	    int i=0;
 	    int j=0;
 	    int k=n-1;
 	    
 	    while(i<n && j<m){
-	        if(arr2[j]<arr1[i]){
-	            swap(arr2[j],arr1[k]);
+	        if(arr1[i]>arr2[j]){
+	            swap(arr1[k],arr2[j]);
 	            j++;
 	            k--;
 	        }else{
@@ -25,7 +25,6 @@ public:
 	    sort(arr1,arr1+n);
 	    sort(arr2,arr2+m);
 	    
-	   
 	}
 };
 
