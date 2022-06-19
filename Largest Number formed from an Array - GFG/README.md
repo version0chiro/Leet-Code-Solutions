@@ -6,23 +6,23 @@
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:</strong> 
+<pre><span style="font-size:18px"><strong>Input:</strong> 
 N = 5
 Arr[] = {3,&nbsp;30,&nbsp;34,&nbsp;5,&nbsp;9}
 <strong>Output:</strong> 9534330
 <strong>Explanation:</strong> Given numbers are {3,&nbsp;30,&nbsp;34,
 5,&nbsp;9}, the arrangement 9534330 gives the
-largest value.</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+largest value.</span></pre>
 
 <p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:</strong> 
+<pre><span style="font-size:18px"><strong>Input:</strong> 
 N = 4
 Arr[] = {54, 546, 548, 60}
 <strong>Output:</strong> 6054854654
 <strong>Explanation:</strong> Given numbers are {54, 546,
 548, 60}, the arrangement 6054854654 
-gives the largest value.</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+gives the largest value.</span></pre>
 
 <p><br>
 <span style="font-size:18px"><strong>Your Task:&nbsp;&nbsp;</strong><br>
