@@ -1,5 +1,5 @@
 # Bipartite Graph
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an adjacency list&nbsp;of a graph<strong> adj&nbsp; </strong>of V no. of vertices having 0 based index. Check whether the graph is bipartite or not.</span><br>
 &nbsp;</p>
