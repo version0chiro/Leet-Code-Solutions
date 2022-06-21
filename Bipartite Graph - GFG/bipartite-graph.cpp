@@ -4,37 +4,47 @@ using namespace std;
 
  // } Driver Code Ends
 class Solution {
+
 public:
-    
-    bool DFS(int i,vector<int>adj[],vector<int>&col){
+
+    bool dfs(vector<int> adj[],int i,vector<int>& visited){
+        // visited[i]=c;
+        
+        // int next_c = c==1?2:1;
         
         for(auto a:adj[i]){
-            if(col[a]==-1){
-                col[a]=!col[i];
-                if(! DFS(a,adj,col)) return false;
-            }else if(col[a]==col[i]){
-                // cout<<a<<" "<<i<<" "<<col[a]<<" ";
-                return false;
+            if(visited[a]==-1){
+                visited[a]=!visited[i];
+                if(dfs(adj,a,visited)){
+                    return true;
+                }
+            }else if(visited[a]==visited[i]){
+                return true;
             }
         }
         
-        return true;
+        return false;
     }
     
+    //  0->2
+
 	bool isBipartite(int V, vector<int>adj[]){
 	    // Code here
-	    
-	    vector<int> col(V+1,-1);
+	   //1 - >red 
+	   //2 -> green
+	   // 0 ->white
+	    vector<int> visited(V+1,-1);
 	    
 	    for(int i=0;i<V;i++){
-	        if(col[i]==-1){
-	            col[i]=0;
-	            if(!DFS(i,adj,col))
-	            return false;
+	        if(visited[i]==-1){
+	            visited[i]=0;
+    	        if(dfs(adj,i,visited)){
+    	            return false;
+    	        }
 	        }
 	    }
 	    
-	     return true;
+	    return 1;
 	}
 
 };
