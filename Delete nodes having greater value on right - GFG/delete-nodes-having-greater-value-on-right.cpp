@@ -49,15 +49,17 @@ class Solution
     Node *compute(Node *head)
     {
         // your code goes here
-        if(head==NULL || head->next == NULL) return head;
-        
-        Node* nx = compute(head->next);
-        
-        if(nx->data>head->data) return nx;
-        
-        head->next = nx;
-        
-        return head;
+       if(!head || !head->next) return head;
+       
+       auto temp = compute(head->next);
+       
+       if(head->data>=temp->data){
+           head->next=temp;
+           return head;
+           
+       }
+       
+       return temp;
     }
     
 };
