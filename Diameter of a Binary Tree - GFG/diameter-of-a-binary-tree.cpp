@@ -94,24 +94,26 @@ struct Node
 class Solution {
   public:
     // Function to return the diameter of a Binary Tree.
-    int ans = INT_MIN;
-    int solve(Node* root){
+    
+    int solve(Node* root,int& ans){
         if(!root) return 0;
-        int l = solve(root->left);
-        int r = solve(root->right);
         
-        ans = max(ans,l+r+1);
+        int l = solve(root->left,ans);
+        int r = solve(root->right,ans);
+        
+        ans=max(ans,l+r+1);
         
         return max(l,r)+1;
     }
+    
     int diameter(Node* root) {
         // Your code here
-        int p =  solve(root);
+        int ans = INT_MIN;
         
-        return ans;
+         solve(root,ans);
+         
+         return ans;
     }
-    
-    
 };
 
 // { Driver Code Starts.
