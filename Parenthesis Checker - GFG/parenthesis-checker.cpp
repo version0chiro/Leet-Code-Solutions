@@ -10,34 +10,48 @@ class Solution
 {
     public:
     //Function to check if brackets are balanced or not.
-    bool ispar(string x)
+    bool ispar(string s)
     {
         // Your code here
         stack<char> st;
         
-        for(auto a:x){
-            if(a=='(' || a=='{' || a=='['){
-                st.push(a);
+        for(int i=0;i<s.size();i++){
+            // cout<<i<<" ";
+            // if(st.size())
+            // cout<<st.top()<<" ";
+            if(s[i]=='(' || s[i]==')'){
+                if(s[i]=='('){
+                    st.push(s[i]);
+                }else{
+                    if(st.size()==0 || st.top()!='(')
+                        return false;
+                    else
+                        st.pop();
+                }
             }
-            
-            else if(a==')'){
-                if(st.size()==0 || st.top()!='(') return false;
-                
-                else st.pop();
+            if(s[i]=='[' || s[i]==']'){
+                if(s[i]=='['){
+                    st.push(s[i]);
+                }else{
+                    if(st.size()==0 || st.top()!='[')
+                        return false;
+                    else
+                        st.pop();
+                }
             }
-            
-            else if(a==']'){
-                if(st.size()==0 || st.top()!='[') return false;
-                
-                else st.pop();
-            }
-            else if(a=='}'){
-                if(st.size()==0 || st.top()!='{') return false;
-                
-                else st.pop();
+            if(s[i]=='{' || s[i]=='}'){
+                if(s[i]=='{'){
+                    st.push(s[i]);
+                }else{
+                    if(st.size()==0 || st.top()!='{')
+                        return false;
+                    else
+                        st.pop();
+                }
             }
         }
         
+        // cout<<st.size()<<"\n";
         
         return st.size()==0;
     }
