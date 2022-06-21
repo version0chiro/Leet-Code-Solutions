@@ -6,20 +6,19 @@ using namespace std;
  // } Driver Code Ends
 class Solution{
   public:
+    #define ll long long 
     // arr[]: Input Array
     // N : Size of the Array arr[]
     // Function to count inversions in the array.
     
-    long long int merge(long long arr[],int l,int r,int mid){
-        long long int inv_c =0;
+    long long int merge(long long arr[],long long l,long long mid,long long r){
+        long long i=l;
+        long long j=mid;
+        long long k=l;
         
-        long long temp[r];
+        long long int temp[r];
         
-        int i,j,k;
-        
-        i=l;
-        j=mid;
-        k=l;
+        long long int inv_c=0;
         
         while(i<mid && j<=r){
             if(arr[i]<=arr[j]){
@@ -33,10 +32,11 @@ class Solution{
         while(i<mid){
             temp[k++]=arr[i++];
         }
-
+        
         while(j<=r){
             temp[k++]=arr[j++];
-        }        
+            
+        }
         
         for(int i=l;i<=r;i++){
             arr[i]=temp[i];
@@ -45,27 +45,21 @@ class Solution{
         return inv_c;
     }
     
-    
-    long long int mergeS(long long arr[],int l,int r){
+    long long int mergeS(long long arr[],long long l,long long r){
         long long int inv_c=0;
-        
         if(l<r){
-            int mid = (l+r)/2;
-            
+            long long int mid = (l+r)/2;
             inv_c+=mergeS(arr,l,mid);
             inv_c+=mergeS(arr,mid+1,r);
             
+            inv_c+=merge(arr,l,mid+1,r);
             
-            inv_c+=merge(arr,l,r,mid+1);
         }
-        
         return inv_c;
     }
-    
     long long int inversionCount(long long arr[], long long N)
     {
         // Your Code Here
-        
         return mergeS(arr,0,N-1);
     }
 
