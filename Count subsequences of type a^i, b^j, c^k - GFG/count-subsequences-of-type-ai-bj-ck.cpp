@@ -11,30 +11,35 @@ using namespace std;
 
 class Solution{
   public:
-          int mod = 1e9+7;
-
+  
+    int M = 1e9+7;
     // s : given string
     // return the expected answer
     int fun(string &s) {
         //code here
-        int a=0,b=0,c=0;
+        int a = 0,b=0,c=0;
         
-        for(auto p:s){
-            
-            if(p=='a'){
-                a=(1+(2*a)%mod)%mod;
+        for(auto t:s){
+            if(t=='a'){
+                a=(1+(2*a)%M)%M;
+                
+                
             }
             
-            if(p=='b'){
-                b=(a+(2*b)%mod)%mod;
+            else if(t=='b'){
+                b=(a+(2*b)%M)%M;
             }
             
-            if(p=='c'){
-                c=(b+(2*c)%mod)%mod;
+            else{
+                c=(b+(2*c)%M)%M;
             }
+            
+            
         }
         
-        return c%mod;
+        return c%M;
+        
+        
     }
 };
 
