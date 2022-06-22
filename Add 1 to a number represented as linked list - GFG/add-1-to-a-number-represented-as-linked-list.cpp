@@ -46,57 +46,31 @@ struct Node
 class Solution
 {
     public:
-    Node* reverse(Node *head){
+    int solve(Node *head){
+        if(!head) return 1;
         
-        Node* prev = NULL;
-        Node* temp = head;
+        int carry = solve(head->next);
         
-        while(head){
-            temp=head->next;
-            head->next=prev;
-            prev=head;
-            head=temp;
-        }
+        int newC=head->data+carry;
         
-        return prev;
+        head->data=(newC)%10;
         
-        
+        return newC/10;
     }
-    
     Node* addOne(Node *head) 
     {
         // Your Code here
         // return head of list after adding one
         
-        Node* reverseHead =  reverse(head);
-        
-        Node* curr = reverseHead;
-        
-        int carry = 0;
-        
-        bool first = true;
-        
-        Node* prev = curr;
-        
-        while(curr){
-            
-            int sum = curr->data + carry;
-            if(first){
-                sum++;
-                first=false;
-            }
-            curr->data=sum%10;
-            carry=sum/10;
-            prev=curr;
-            curr=curr->next;
-        }
+        int carry = solve(head);
         
         if(carry){
-            prev->next = new Node(carry);
+            Node* newHead = new Node(carry);
+            newHead->next = head;
+            head=newHead;
         }
         
-        return reverse(reverseHead);
-        
+        return head;
     }
 };
 
