@@ -1,5 +1,5 @@
 # Smallest window in a string containing all the characters of another string
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given two strings <strong>S</strong> and <strong>P</strong>. Find the smallest window in the string&nbsp;<strong>S</strong> consisting of all the characters(<strong>including duplicates</strong>) of the string&nbsp;<strong>P</strong>.&nbsp;</span>&nbsp;<span style="font-size:18px">Return "<strong>-1</strong>" in case there is no such window present.&nbsp;In case there are multiple such windows of same length, return the one with the least starting index.&nbsp;</span></p>
 
