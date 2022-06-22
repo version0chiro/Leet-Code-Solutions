@@ -8,26 +8,27 @@ class Solution{
 public:
     int *findTwoElement(int *arr, int n) {
         // code here
+        
         int *ans= new int[2];
+
+        int totalSum = ((n)/2)*(2*1-1);
+        
         
         for(int i=0;i<n;i++){
             int id = abs(arr[i]);
-            
-             if(arr[id-1]>0){
-                arr[id-1]=-abs(arr[id-1]);
-            }else{
-                ans[0]=abs(arr[i]);
-                // break;
-            }
+            if(arr[id-1]>0)
+             arr[id-1]=-abs(arr[id-1]);
+            else
+             ans[0]=abs(arr[i]);
         }
-        
         
         for(int i=0;i<n;i++){
             if(arr[i]>0){
                 ans[1]=i+1;
             }
-            
         }
+        
+        
         
         
         return ans;
