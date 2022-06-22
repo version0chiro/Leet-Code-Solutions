@@ -1,5 +1,5 @@
 # Get minimum element from stack
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">You are given <strong>N</strong>&nbsp;elements&nbsp;and your task is to Implement a Stack in which you can get minimum element in O(1) time.</span></p>
 
