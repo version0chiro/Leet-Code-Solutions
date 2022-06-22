@@ -93,45 +93,36 @@ struct Node
 class Solution {
 public:
     int solve(Node* root,int& ans){
-        if(!root){
-            return 0;
-        }
+        if(!root) return 0;
         
         if(!root->left && !root->right) return root->data;
         
-        int l =  solve(root->left,ans);
-        
+        int l = solve(root->left,ans);
         int r = solve(root->right,ans);
         
-        if(!root->left){
-            return r+root->data;
+        if(root->left==NULL){
+            return root->data+r;
         }
         
-        if(!root->right){
-            return l+root->data;
+        if(root->right==NULL){
+            return root->data+l;
         }
         
-        
-        ans=max(ans,l+r+root->data);
+        ans=max(ans,root->data+l+r);
         
         return max(l,r)+root->data;
-        
-        
-        
-        
     }
     int maxPathSum(Node* root)
     {
-        int ans=INT_MIN;
-        
+        // code here
+        int ans = INT_MIN;
         int temp = solve(root,ans);
         
-        if(!root->left || !root->right){
+        if(root->left==NULL || root->right==NULL){
             ans=max(ans,temp);
         }
         
         return ans;
-        // code here
     }
 };
 
