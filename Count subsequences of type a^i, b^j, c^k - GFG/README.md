@@ -5,7 +5,7 @@
 
 <p><span style="font-size:18px"><strong>Note:</strong>&nbsp;<br>
 1.&nbsp;Two subsequences are considered different if the set of array indexes picked for the 2 subsequences are different.<br>
-2.&nbsp;&nbsp;For large test cases, output value will be too large, return the answer MODULO 10^9+7</span></p>
+2.&nbsp;&nbsp;For large test cases, the output value will be too large, return the answer MODULO 10^9+7</span></p>
 
 <p>&nbsp;</p>
 
@@ -14,18 +14,16 @@
 <pre><span style="font-size:18px"><strong>Input:</strong>
 S = "abbc"
 <strong>Output:</strong> 3
-<strong>Explanation</strong>: Subsequences are abc, abc and abbc.
-</span></pre>
+<strong>Explanation</strong>: Subsequences are abc, abc and abbc.</span></pre>
 
-<p><span style="font-size:18px">â€‹<br>
-<strong>Example 2:</strong></span></p>
+<p><br>
+<span style="font-size:18px"><strong>Example 2:</strong></span></p>
 
-<pre><span style="font-size:18px"><strong>Input</strong>: 
+<pre><span style="font-size:18px"><strong>Input</strong>:
 S = "abcabc"
 <strong>Output:</strong> 7
 <strong>Explanation</strong>: Subsequences are abc, abc,
-abbc, aabc abcc, abc and abc.
-</span></pre>
+abbc, aabc abcc, abc and abc.</span></pre>
 
 <p><br>
 <span style="font-size:18px"><strong>Your Task:</strong><br>
