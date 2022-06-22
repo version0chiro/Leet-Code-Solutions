@@ -36,15 +36,18 @@ int max_sum(int A[],int N)
     for(int i=0;i<N;i++){
         sum+=A[i];
         product+=A[i]*i;
-        
     }
     
     int ans = product;
+    // cout<<product<<" ";
     
     for(int i=1;i<N;i++){
-        product=product-(sum-A[i-1])+A[i-1]*(N-1);
+        product = product - (sum-A[i-1]) + A[i-1]*(N-1);
+        // cout<<product<<" ";
         ans=max(product,ans);
     }
     
     return ans;
+    
+    
 }
