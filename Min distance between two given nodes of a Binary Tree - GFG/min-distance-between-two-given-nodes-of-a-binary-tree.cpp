@@ -113,15 +113,15 @@ class Solution{
         
     }
     
-    int distanceFromLCA(Node* root,int target,int d){
+    int distanceFromLCA(Node* root,int target){
         if(!root) return 1000;
         
-        if(root->data==target) return d;
+        if(root->data==target) return 0;
         
-        int l = distanceFromLCA(root->left,target,d+1);
-        int r = distanceFromLCA(root->right,target,d+1);
+        int l = distanceFromLCA(root->left,target);
+        int r = distanceFromLCA(root->right,target);
         
-        return min(l,r);
+        return min(l,r)+1;
         
         
     }
@@ -131,8 +131,8 @@ class Solution{
         
         Node* lca = LCA(root,a,b);
         
-        int a_dist = distanceFromLCA(lca,a,0);
-        int b_dist = distanceFromLCA(lca,b,0);
+        int a_dist = distanceFromLCA(lca,a);
+        int b_dist = distanceFromLCA(lca,b);
         
         
         return a_dist+b_dist;
