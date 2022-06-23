@@ -22,16 +22,17 @@ class Solution{
       
       int ans = 1;
       
+      
+      
       for(int i=0;i<N;i++){
           if(s.find(arr[i]-1)!=s.end()){
               continue;
           }else if(s.find(arr[i]+1)!=s.end()){
-              int temp=1;
-              int state = arr[i];
-              while(s.find(state+1)!=s.end()){
+              int ts = arr[i];
+              int temp = 0;
+              while(s.find(ts)!=s.end()){
+                  ts++;
                   temp++;
-                  state++;
-                  
               }
               
               ans=max(ans,temp);
@@ -39,8 +40,6 @@ class Solution{
       }
       
       return ans;
-      
-       
     }
 };
 
