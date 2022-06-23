@@ -13,19 +13,17 @@ class Solution{
     int maxIndexDiff(int A[], int N) 
     { 
         // Your code here
-        
         int maxArr[N];
         
         maxArr[N-1]=A[N-1];
         
-        for(int i=N-2;i>=0;i-- ){
+        for(int i=N-2;i>=0;i--){
             maxArr[i]=max(maxArr[i+1],A[i]);
         }
         
-        
         int i=0;
         int j=0;
-        int ans = INT_MIN;
+        int ans = 0;
         
         while(i<N && j<N){
             if(A[i]<=maxArr[j]){
