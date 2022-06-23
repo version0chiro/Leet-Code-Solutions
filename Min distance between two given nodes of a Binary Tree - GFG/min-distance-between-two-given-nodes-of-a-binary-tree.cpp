@@ -97,7 +97,6 @@ class Solution{
     public:
     /* Should return minimum distance between a and b
     in a tree with given root*/
-    
     Node* LCA(Node* root,int a,int b){
         if(!root) return NULL;
         
@@ -108,34 +107,35 @@ class Solution{
         
         if(l && r) return root;
         
-        return l? l: r;
+        else if(l) return l;
+        
+        else return r;
+        
     }
     
-    int solve(Node* root,int n,int d){
-        if(!root) return INT_MAX;
+    int distanceFromLCA(Node* root,int target,int d){
+        if(!root) return 1000;
         
-        if(root->data==n) return d;
+        if(root->data==target) return d;
         
-        int a = solve(root->left,n,d+1);
-        int b = solve(root->right,n,d+1);
-        return min(a,b);
+        int l = distanceFromLCA(root->left,target,d+1);
+        int r = distanceFromLCA(root->right,target,d+1);
+        
+        return min(l,r);
+        
         
     }
     
     int findDist(Node* root, int a, int b) {
         // Your code here
         
-        auto lca = LCA(root,a,b);
+        Node* lca = LCA(root,a,b);
         
-        int l = solve(lca,a,0);
-        int r = solve(lca,b,0);
-        
-        return l+r;
+        int a_dist = distanceFromLCA(lca,a,0);
+        int b_dist = distanceFromLCA(lca,b,0);
         
         
-        
-        
-        return l+r-2;
+        return a_dist+b_dist;
         
         
     }
